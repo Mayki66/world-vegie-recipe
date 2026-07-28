@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Vegie Recipe</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 font-sans p-4 md:p-8 min-h-screen transition-colors duration-300">
+
+    <div class="max-w-7xl mx-auto flex justify-end mb-4 gap-4">
+        <button onclick="toggleLanguage()" class="flex items-center gap-2 text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-yellow-400 font-bold transition">
+            <i class="fas fa-globe"></i> <span id="lang-display">FR</span>
+        </button>
+        <button onclick="toggleTheme()" class="text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-yellow-400 text-2xl transition">
+            <i class="theme-icon fas fa-moon"></i>
+        </button>
+    </div>
+
+    <nav id="nav-bar" class="max-w-7xl mx-auto mb-6 hidden flex flex-col md:flex-row justify-between items-center bg-white dark:bg-slate-800 p-4 rounded-lg shadow-sm border dark:border-slate-700 transition-colors duration-300 gap-4">
+        <div class="font-bold text-green-700 dark:text-green-500 text-xl flex items-center cursor-pointer" onclick="changerVue('vue-accueil')">
+            <i class="fas fa-leaf mr-2"></i>WVR
+        </div>
+        
+        <div class="flex flex-wrap justify-center gap-2 md:gap-4">
+            <button onclick="changerVue('vue-aliments')" class="text-xs md:text-sm hover:text-green-600 font-medium"><i class="fas fa-carrot mr-1"></i><span data-i18n="nav_aliments">Aliments</span></button>
+            <button onclick="nouvelleRecette()" class="text-xs md:text-sm hover:text-orange-600 font-medium"><i class="fas fa-utensils mr-1"></i><span data-i18n="nav_creer">Créer</span></button>
+            <button onclick="changerVue('vue-recherche')" class="text-xs md:text-sm hover:text-purple-600 font-medium"><i class="fas fa-search mr-1"></i><span data-i18n="nav_cuisiner">Cuisiner</span></button>
+            <button onclick="changerVue('vue-bibliotheque')" class="text-xs md:text-sm hover:text-blue-600 font-medium"><i class="fas fa-book-open mr-1"></i><span data-i18n="nav_carnet">Carnet</span></button>
+            <button onclick="changerVue('vue-courses')" class="text-xs md:text-sm hover:text-amber-500 font-medium flex items-center"><i class="fas fa-shopping-cart mr-1"></i><span data-i18n="nav_courses">Courses</span><span id="badge-courses" class="ml-1 px-1.5 py-0.5 text-xs bg-amber-500 text-white rounded-full hidden">0</span></button>
+            <button onclick="changerVue('vue-restaurants')" class="text-xs md:text-sm hover:text-red-500 font-medium"><i class="fas fa-store mr-1"></i><span data-i18n="nav_restos">Restos</span></button>
+            <button onclick="changerVue('vue-donnees')" class="text-xs md:text-sm hover:text-gray-600 font-medium"><i class="fas fa-save mr-1"></i><span data-i18n="nav_sauvegarde">Data</span></button>
+        </div>
+
+        <div class="flex items-center gap-4">
+            <button onclick="changerVue('vue-accueil')" class="text-slate-600 dark:text-slate-300 hover:text-green-600 dark:hover:text-green-400 font-medium transition text-sm">
+                <i class="fas fa-home mr-1"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="max-w-7xl mx-auto">
+
+        <div id="vue-accueil" class="vue-app text-center mt-8">
+            <i class="fas fa-leaf text-6xl text-green-600 dark:text-green-500 mb-6"></i>
+            <h1 class="text-5xl font-extrabold text-slate-800 dark:text-slate-100 mb-6">World Vegie Recipe</h1>
+            <p class="text-lg text-slate-500 dark:text-slate-400 max-w-2xl mx-auto mb-12" data-i18n="home_subtitle">
+                Votre assistant culinaire personnel. Gérez vos stocks, créez des recettes, 
+                trouvez l'inspiration selon votre frigo et sécurisez vos données.
+            </p>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-4xl mx-auto px-4">
+                <button onclick="changerVue('vue-aliments')" class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition duration-300 border-b-4 border-green-500 group">
+                    <i class="fas fa-carrot text-3xl text-green-500 mb-4 group-hover:scale-110 transition"></i>
+                    <h3 class="text-sm md:text-lg font-bold text-slate-700 dark:text-slate-200 mb-1" data-i18n="card_aliments_title">Mes Aliments</h3>
+                </button>
+                <button onclick="nouvelleRecette()" class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition duration-300 border-b-4 border-orange-500 group">
+                    <i class="fas fa-utensils text-3xl text-orange-500 mb-4 group-hover:scale-110 transition"></i>
+                    <h3 class="text-sm md:text-lg font-bold text-slate-700 dark:text-slate-200 mb-1" data-i18n="card_creer_title">Créer Recette</h3>
+                </button>
+                <button onclick="changerVue('vue-recherche')" class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition duration-300 border-b-4 border-purple-500 group">
+                    <i class="fas fa-search text-3xl text-purple-500 mb-4 group-hover:scale-110 transition"></i>
+                    <h3 class="text-sm md:text-lg font-bold text-slate-700 dark:text-slate-200 mb-1" data-i18n="card_cuisiner_title">Que Cuisiner ?</h3>
+                </button>
+                <button onclick="changerVue('vue-bibliotheque')" class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition duration-300 border-b-4 border-blue-500 group">
+                    <i class="fas fa-book-open text-3xl text-blue-500 mb-4 group-hover:scale-110 transition"></i>
+                    <h3 class="text-sm md:text-lg font-bold text-slate-700 dark:text-slate-200 mb-1" data-i18n="card_carnet_title">Mon Carnet</h3>
+                </button>
+                <button onclick="changerVue('vue-courses')" class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition duration-300 border-b-4 border-amber-500 group">
+                    <i class="fas fa-shopping-cart text-3xl text-amber-500 mb-4 group-hover:scale-110 transition"></i>
+                    <h3 class="text-sm md:text-lg font-bold text-slate-700 dark:text-slate-200 mb-1" data-i18n="card_courses_title">Mes Courses</h3>
+                </button>
+                <button onclick="changerVue('vue-restaurants')" class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition duration-300 border-b-4 border-red-500 group">
+                    <i class="fas fa-store text-3xl text-red-500 mb-4 group-hover:scale-110 transition"></i>
+                    <h3 class="text-sm md:text-lg font-bold text-slate-700 dark:text-slate-200 mb-1" data-i18n="card_restos_title">Restaurants</h3>
+                </button>
+            </div>
+            
+            <div class="mt-12">
+                <button onclick="changerVue('vue-donnees')" class="text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300 underline text-sm">
+                    <i class="fas fa-save mr-1"></i> <span data-i18n="link_manage_data">Gérer mes sauvegardes / données</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="vue-aliments" class="vue-app hidden">
+            <section class="bg-transparent mb-8">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold text-slate-700 dark:text-slate-200"><i class="fas fa-carrot mr-2 text-green-500"></i><span data-i18n="title_aliments">Répertoire d'Aliments</span></h2>
+                </div>
+                <div class="flex flex-col md:flex-row gap-4 mb-8 bg-green-50 dark:bg-green-900/30 p-6 rounded-xl shadow border dark:border-green-800/50">
+                    <input type="text" id="food-name" data-placeholder="ph_food_name" placeholder="Nom (ex: Quinoa)" class="flex-1 border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-800 dark:text-white p-3 rounded focus:outline-none focus:ring-2 focus:ring-green-400">
+                    <input list="dl-categories" type="text" id="food-category" data-placeholder="ph_food_cat" placeholder="Catégorie (ex: Céréale)" class="flex-1 border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-800 dark:text-white p-3 rounded focus:outline-none focus:ring-2 focus:ring-green-400">
+                    <datalist id="dl-categories"></datalist>
+                    <button onclick="ajouterAliment()" class="bg-green-600 text-white px-8 py-3 rounded font-bold hover:bg-green-700 transition shadow"><i class="fas fa-plus mr-2"></i><span data-i18n="btn_add">Ajouter</span></button>
+                </div>
+                <div id="food-list-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-start"></div>
+            </section>
+        </div>
+
+        <div id="vue-restaurants" class="vue-app hidden">
+            <section class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500 transition-colors duration-300">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 id="resto-form-title" class="text-2xl font-bold text-slate-700 dark:text-slate-200"><i class="fas fa-store mr-2 text-red-500"></i><span data-i18n="title_restos">Mes Restaurants</span></h2>
+                </div>
+
+                <div class="bg-red-50 dark:bg-red-900/20 p-6 rounded-lg border dark:border-red-800/30 mb-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <input type="text" id="resto-name" data-placeholder="ph_resto_name" placeholder="Nom du Restaurant" class="border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-800 dark:text-white p-3 rounded focus:outline-none focus:ring-2 focus:ring-red-400">
+                        <input type="text" id="resto-cuisine" data-placeholder="ph_resto_cuisine" placeholder="Type de Cuisine (ex: Indien)" class="border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-800 dark:text-white p-3 rounded focus:outline-none focus:ring-2 focus:ring-red-400">
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <input type="text" id="resto-address" data-placeholder="ph_resto_address" placeholder="Adresse (ou Lien Google Maps)" class="border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-800 dark:text-white p-3 rounded focus:outline-none focus:ring-2 focus:ring-red-400">
+                        <input type="url" id="resto-website" data-placeholder="ph_resto_website" placeholder="Site Web / Menu (URL)" class="border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-800 dark:text-white p-3 rounded focus:outline-none focus:ring-2 focus:ring-red-400">
+                    </div>
+                    <div class="mb-4">
+                        <select id="resto-status" class="w-full border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-800 dark:text-white p-3 rounded focus:outline-none focus:ring-2 focus:ring-red-400 font-bold">
+                            <option value="100% Végétarien" data-i18n="opt_100_veg">🌱 100% Végétarien</option>
+                            <option value="Option Végé" data-i18n="opt_option_veg">🥗 Option Végétarienne</option>
+                        </select>
+                    </div>
+                    <div class="flex gap-4">
+                        <button id="btn-save-resto" onclick="sauvegarderRestaurant()" class="flex-1 bg-red-600 text-white py-3 rounded-lg font-bold hover:bg-red-700 transition shadow"><i class="fas fa-save mr-2"></i><span data-i18n="btn_add_resto">Ajouter le Restaurant</span></button>
+                        <button id="btn-cancel-resto" onclick="resetRestoForm()" class="hidden bg-gray-400 text-white py-3 px-6 rounded-lg font-bold hover:bg-gray-500 transition shadow"><i class="fas fa-times"></i></button>
+                    </div>
+                </div>
+
+                <div class="mb-8 bg-gradient-to-r from-red-100 to-orange-100 dark:from-red-900/40 dark:to-orange-900/40 p-4 rounded-lg border border-red-200 dark:border-red-800 flex flex-col md:flex-row items-center justify-between gap-4">
+                    <div class="text-sm text-red-900 dark:text-red-100">
+                        <strong data-i18n="title_random_resto">Où manger ?</strong><br>
+                        <span data-i18n="desc_random_resto">Laissez le hasard choisir pour vous !</span>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-2 w-full md:w-auto">
+                        <select id="random-cuisine-select" class="border border-red-300 dark:border-red-700 bg-white dark:bg-slate-800 text-slate-800 dark:text-white p-2 rounded focus:outline-none focus:ring-2 focus:ring-red-400 text-sm font-semibold">
+                        </select>
+                        <button onclick="choisirRestoAleatoire()" class="bg-gradient-to-r from-red-500 to-orange-500 text-white font-bold py-2 px-6 rounded-lg hover:shadow-lg hover:scale-105 transition transform whitespace-nowrap">
+                            <i class="fas fa-dice mr-2"></i><span data-i18n="btn_random">Choix aléatoire</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap items-center justify-between gap-4 mb-6 bg-slate-50 dark:bg-slate-700/40 p-3 rounded-lg border border-slate-200 dark:border-slate-700">
+                    <div class="flex items-center gap-2">
+                        <label class="text-sm font-bold text-slate-600 dark:text-slate-300 flex items-center cursor-pointer">
+                            <input type="checkbox" id="resto-filter-fav" onchange="afficherRestaurants()" class="rounded text-red-600 mr-2">
+                            <span data-i18n="filter_fav">❤️ Favoris uniquement</span>
+                        </label>
+                    </div>
+                    <div class="flex items-center gap-2 text-sm">
+                        <span class="text-slate-500 dark:text-slate-400 font-medium">Trier par :</span>
+                        <select id="resto-sort-select" onchange="afficherRestaurants()" class="bg-white dark:bg-slate-700 text-slate-800 dark:text-white border border-slate-300 dark:border-slate-600 rounded px-2 py-1 focus:outline-none">
+                            <option value="alpha" data-i18n="sort_alpha">🔤 Nom</option>
+                            <option value="rating" data-i18n="sort_rating">⭐ Notes</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="restaurants-container" class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start"></div>
+            </section>
+        </div>
+
+        <div id="vue-creation" class="vue-app hidden">
+            <section class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-lg mb-8 border-t-4 border-orange-500 max-w-3xl mx-auto transition-colors duration-300">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 id="creation-title" class="text-2xl font-bold text-slate-700 dark:text-slate-200"><i class="fas fa-magic mr-2 text-orange-500"></i><span data-i18n="title_new_recipe">Nouvelle Recette</span></h2>
+                    <button onclick="toggleImportPanel()" class="bg-slate-200 dark:bg-slate-600 text-slate-700 dark:text-white px-3 py-1 rounded text-sm hover:bg-slate-300 transition">
+                        <i class="fas fa-file-import mr-1"></i>⚡ <span data-i18n="btn_quick_import">Import Rapide</span>
+                    </button>
+                </div>
+
+                <div id="import-panel" class="hidden mb-6 bg-slate-100 dark:bg-slate-700 p-4 rounded-lg border-2 border-dashed border-slate-300 dark:border-slate-500">
+                    <h3 class="font-bold text-slate-700 dark:text-white mb-2 text-sm" data-i18n="import_instr">Copier-Coller le texte d'une recette ici :</h3>
+                    <textarea id="import-text" rows="5" class="w-full border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-800 dark:text-white p-2 rounded text-xs mb-2 focus:outline-none" data-placeholder="ph_import" placeholder="Exemple: 200g de farine..."></textarea>
+                    <button onclick="importerTexteIntelligent()" class="bg-blue-600 text-white px-4 py-1 rounded text-sm hover:bg-blue-700 w-full font-bold" data-i18n="btn_analyze">Analyser et Remplir</button>
+                </div>
+                
+                <div class="bg-orange-50 dark:bg-orange-900/20 p-6 rounded-lg border dark:border-orange-800/30">
+                    <div class="flex flex-col md:flex-row gap-4 mb-4">
+                        <input type="text" id="recipe-title" data-placeholder="ph_recipe_title" placeholder="Titre de votre recette..." class="flex-1 text-lg font-semibold border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-800 dark:text-white p-3 rounded focus:outline-none focus:ring-2 focus:ring-orange-400">
+                        <select id="recipe-category-select" class="w-full md:w-1/3 border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-800 dark:text-white p-3 rounded focus:outline-none focus:ring-2 focus:ring-orange-400 font-bold">
+                            <option value="Plat Principal" data-i18n="cat_main">🥘 Plat Principal</option>
+                            <option value="Entrée" data-i18n="cat_starter">🥬 Entrée</option>
+                            <option value="Dessert" data-i18n="cat_dessert">🍰 Dessert</option>
+                            <option value="Petit-Dej / Brunch" data-i18n="cat_brunch">🥐 Petit-Dej / Brunch</option>
+                            <option value="Apéro / Cocktail" data-i18n="cat_cocktail">🍹 Apéro / Cocktail</option>
+                            <option value="Sauce / Autre" data-i18n="cat_other">🥣 Sauce / Autre</option>
+                        </select>
+                    </div>
+
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6 bg-white dark:bg-slate-700/50 p-4 rounded-lg border border-orange-100 dark:border-slate-600">
+                        <div>
+                            <label class="block text-xs font-bold mb-1 text-slate-700 dark:text-slate-300"><i class="fas fa-users mr-1 text-orange-500"></i><span data-i18n="label_portions">Portions</span></label>
+                            <input type="number" id="recipe-portions" min="1" value="4" class="w-full border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-800 dark:text-white p-2 rounded text-sm focus:outline-none focus:ring-2 focus:ring-orange-400">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold mb-1 text-slate-700 dark:text-slate-300"><i class="fas fa-clock mr-1 text-orange-500"></i><span data-i18n="label_prep">Prep (min)</span></label>
+                            <input type="number" id="recipe-prep-time" min="0" placeholder="ex: 15" class="w-full border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-800 dark:text-white p-2 rounded text-sm focus:outline-none focus:ring-2 focus:ring-orange-400">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold mb-1 text-slate-700 dark:text-slate-300"><i class="fas fa-fire mr-1 text-orange-500"></i><span data-i18n="label_cook">Cuisson (min)</span></label>
+                            <input type="number" id="recipe-cook-time" min="0" placeholder="ex: 20" class="w-full border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-800 dark:text-white p-2 rounded text-sm focus:outline-none focus:ring-2 focus:ring-orange-400">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold mb-1 text-slate-700 dark:text-slate-300"><i class="fas fa-signal mr-1 text-orange-500"></i><span data-i18n="label_diff">Difficulté</span></label>
+                            <select id="recipe-difficulty" class="w-full border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-800 dark:text-white p-2 rounded text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 font-medium">
+                                <option value="Facile" data-i18n="diff_easy">🟢 Facile</option>
+                                <option value="Moyen" data-i18n="diff_medium">🟡 Moyen</option>
+                                <option value="Difficile" data-i18n="diff_hard">🔴 Difficile</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label class="block text-sm font-bold mb-2 text-gray-700 dark:text-gray-300"><i class="fas fa-shopping-basket mr-2"></i><span data-i18n="label_ingredients">Ingrédients :</span></label>
+                        <div class="flex flex-wrap gap-2 mb-2">
+                            <input type="number" id="recipe-ingredient-qty" data-placeholder="ph_qty" placeholder="Qté" min="0" step="any" class="w-20 border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-800 dark:text-white p-2 rounded focus:outline-none focus:ring-2 focus:ring-orange-400">
+                            <select id="recipe-ingredient-unit" class="w-28 border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-800 dark:text-white p-2 rounded focus:outline-none focus:ring-2 focus:ring-orange-400">
+                                <option value="" data-i18n="unit_placeholder">Unité...</option><option value="g">g</option><option value="kg">kg</option><option value="ml">ml</option><option value="cl">cl</option><option value="L">L</option><option value="c. à soupe">C. à soupe</option><option value="c. à café">C. à café</option><option value="pièce(s)">Pièce(s)</option><option value="pincée(s)">Pincée(s)</option>
+                            </select>
+                            <input list="dl-aliments" id="recipe-ingredient-select" data-placeholder="ph_search" placeholder="Chercher..." class="flex-1 border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-800 dark:text-white p-2 rounded focus:outline-none focus:ring-2 focus:ring-orange-400">
+                            <datalist id="dl-aliments"></datalist>
+                            <button onclick="ajouterIngredientRecette()" class="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition font-bold">+</button>
+                        </div>
+                        <div class="flex gap-2 mb-2">
+                            <input type="text" id="recipe-ingredient-free" data-placeholder="ph_free_ing" placeholder="Ou ingrédient libre..." class="flex-1 border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-800 dark:text-white p-2 rounded focus:outline-none focus:ring-2 focus:ring-orange-400 text-sm italic">
+                            <button onclick="ajouterIngredientLibre()" class="bg-slate-500 text-white px-4 py-2 rounded hover:bg-slate-600 transition font-bold text-sm">Ok</button>
+                        </div>
+                        <ul id="current-recipe-ingredients" class="mt-3 text-sm text-gray-700 dark:text-gray-300 space-y-2"></ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="block text-sm font-bold mb-2 text-gray-700 dark:text-gray-300"><i class="fas fa-list-ol mr-2"></i><span data-i18n="label_steps">Étapes :</span></label>
+                        <div class="flex gap-2 mb-2">
+                            <textarea id="recipe-step" data-placeholder="ph_step" placeholder="Décrivez l'étape..." rows="2" class="flex-1 border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-800 dark:text-white p-2 rounded focus:outline-none focus:ring-2 focus:ring-orange-400"></textarea>
+                            <button onclick="ajouterEtapeRecette()" class="bg-orange-500 text-white px-4 rounded hover:bg-orange-600 transition font-bold">+</button>
+                        </div>
+                        <ul id="current-recipe-steps" class="text-sm text-gray-700 dark:text-gray-300 space-y-2 mt-3"></ul>
+                    </div>
+
+                    <button id="btn-save-recipe" onclick="sauvegarderRecette()" class="w-full bg-orange-600 text-white py-3 rounded-lg font-bold text-lg hover:bg-orange-700 transition shadow-md" data-i18n="btn_save_recipe">Enregistrer ma Recette</button>
+                </div>
+            </section>
+        </div>
+
+        <div id="vue-recherche" class="vue-app hidden">
+            <section class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-lg mb-8 border-t-4 border-purple-500 transition-colors duration-300">
+                <h2 class="text-2xl font-bold text-slate-700 dark:text-slate-200 mb-6"><i class="fas fa-search mr-2 text-purple-500"></i><span data-i18n="title_what_cook">Que cuisiner ce soir ?</span></h2>
+                
+                <div class="flex flex-col lg:flex-row gap-8">
+                    <div class="w-full lg:w-1/3">
+                        <h3 class="font-bold text-purple-800 dark:text-purple-300 mb-3"><i class="fas fa-shopping-basket mr-2"></i><span data-i18n="subtitle_fridge">Dans mon frigo :</span></h3>
+                        <div id="search-ingredients-container" class="space-y-3 max-h-[70vh] overflow-y-auto pr-2"></div>
+                    </div>
+
+                    <div class="w-full lg:w-2/3">
+                        <div class="mb-6">
+                            <h4 class="text-sm font-bold text-slate-500 dark:text-slate-400 mb-2 uppercase tracking-wide">Filtrer :</h4>
+                            <div class="flex flex-wrap gap-2" id="filters-container">
+                                <label class="inline-flex items-center space-x-1 cursor-pointer bg-slate-100 dark:bg-slate-700 px-3 py-1 rounded-full border border-transparent hover:border-purple-400 transition text-sm"><input type="checkbox" value="Entrée" onchange="rechercherRecettes()" class="rounded text-purple-600 focus:ring-purple-500"><span data-i18n="cat_starter">Entrée</span></label>
+                                <label class="inline-flex items-center space-x-1 cursor-pointer bg-slate-100 dark:bg-slate-700 px-3 py-1 rounded-full border border-transparent hover:border-purple-400 transition text-sm"><input type="checkbox" value="Plat Principal" onchange="rechercherRecettes()" class="rounded text-purple-600 focus:ring-purple-500"><span data-i18n="cat_main">Plat</span></label>
+                                <label class="inline-flex items-center space-x-1 cursor-pointer bg-slate-100 dark:bg-slate-700 px-3 py-1 rounded-full border border-transparent hover:border-purple-400 transition text-sm"><input type="checkbox" value="Dessert" onchange="rechercherRecettes()" class="rounded text-purple-600 focus:ring-purple-500"><span data-i18n="cat_dessert">Dessert</span></label>
+                                <label class="inline-flex items-center space-x-1 cursor-pointer bg-slate-100 dark:bg-slate-700 px-3 py-1 rounded-full border border-transparent hover:border-purple-400 transition text-sm"><input type="checkbox" value="Petit-Dej / Brunch" onchange="rechercherRecettes()" class="rounded text-purple-600 focus:ring-purple-500"><span data-i18n="cat_brunch">Brunch</span></label>
+                                <label class="inline-flex items-center space-x-1 cursor-pointer bg-slate-100 dark:bg-slate-700 px-3 py-1 rounded-full border border-transparent hover:border-purple-400 transition text-sm"><input type="checkbox" value="Apéro / Cocktail" onchange="rechercherRecettes()" class="rounded text-purple-600 focus:ring-purple-500"><span data-i18n="cat_cocktail">Apéro</span></label>
+                            </div>
+                        </div>
+
+                        <div class="mb-6 bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900/40 dark:to-pink-900/40 p-4 rounded-lg border border-purple-200 dark:border-purple-800 flex flex-col md:flex-row items-center justify-between gap-4">
+                            <div class="text-sm text-purple-900 dark:text-purple-100">
+                                <strong data-i18n="ai_promo_title">Rien ne vous tente ?</strong><br>
+                                <span data-i18n="ai_promo_desc">Demandez à l'IA de vous inventer une recette avec les ingrédients cochés !</span>
+                            </div>
+                            <button onclick="askAI()" class="bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold py-2 px-6 rounded-full hover:shadow-lg hover:scale-105 transition transform whitespace-nowrap">
+                                <i class="fas fa-magic mr-2"></i><span data-i18n="btn_ask_ai">Demander à l'IA</span>
+                            </button>
+                        </div>
+
+                        <h3 class="text-lg font-bold text-slate-600 dark:text-slate-300 mb-4 border-b pb-2"><i class="fas fa-utensils mr-2"></i><span data-i18n="subtitle_wvr_results">Recettes WVR Correspondantes :</span></h3>
+                        <div id="search-results" class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8"><p class="text-gray-400 italic text-sm" data-i18n="msg_select_ing">Cochez des ingrédients à gauche...</p></div>
+
+                        <h3 class="text-lg font-bold text-slate-600 dark:text-slate-300 mb-4 border-b pb-2"><i class="fas fa-globe mr-2"></i><span data-i18n="subtitle_web_results">Liens Web Tagués :</span></h3>
+                        <div id="search-results-web" class="grid grid-cols-1 md:grid-cols-2 gap-4"><p class="text-gray-400 italic text-sm" data-i18n="msg_no_web">Aucun lien web trouvé.</p></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="vue-bibliotheque" class="vue-app hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="space-y-8">
+                    <section class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-lg border-t-4 border-orange-400 transition-colors duration-300">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-4">
+                            <h2 class="text-xl font-bold text-slate-700 dark:text-slate-200 flex items-center"><i class="fas fa-user-edit mr-2 text-orange-500"></i><span data-i18n="title_my_creations">Mes Créations</span></h2>
+                        </div>
+                        <div class="flex flex-wrap items-center justify-between gap-3 mb-6 bg-slate-50 dark:bg-slate-700/40 p-3 rounded-lg border border-slate-200 dark:border-slate-700">
+                            <div class="flex items-center gap-2">
+                                <label class="text-sm font-bold text-slate-600 dark:text-slate-300 flex items-center cursor-pointer">
+                                    <input type="checkbox" id="recipe-filter-fav" onchange="afficherRecettesSauvegardees()" class="rounded text-orange-600 mr-2">
+                                    <span data-i18n="filter_fav">❤️ Favoris uniquement</span>
+                                </label>
+                            </div>
+                            <div class="flex items-center gap-2 text-sm">
+                                <span class="text-slate-500 dark:text-slate-400 font-medium">Trier par :</span>
+                                <select id="recipe-sort-select" onchange="afficherRecettesSauvegardees()" class="bg-white dark:bg-slate-700 text-slate-800 dark:text-white border border-slate-300 dark:border-slate-600 rounded px-2 py-1 focus:outline-none">
+                                    <option value="alpha" data-i18n="sort_alpha">🔤 Nom</option>
+                                    <option value="rating" data-i18n="sort_rating">⭐ Notes</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="saved-recipes-container" class="space-y-6"></div>
+                    </section>
+                    <section class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-lg border-t-4 border-green-500 transition-colors duration-300">
+                        <h2 class="text-xl font-bold text-slate-700 dark:text-slate-200 mb-6 flex items-center"><i class="fas fa-globe-americas mr-2 text-green-500"></i><span data-i18n="title_world_recipes">Recettes du Monde</span></h2>
+                        <div id="world-recipes-container" class="space-y-4"></div>
+                    </section>
+                </div>
+                <section class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-lg border-t-4 border-blue-500 transition-colors duration-300 h-fit">
+                    <h2 class="text-xl font-bold text-slate-700 dark:text-slate-200 mb-6"><i class="fas fa-globe mr-2 text-blue-500"></i><span data-i18n="title_web_finds">Mes Trouvailles du Web</span></h2>
+                    <div class="flex flex-col gap-3 mb-6 bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg border dark:border-blue-800/30">
+                        <div class="flex gap-2">
+                            <input type="text" id="link-title" data-placeholder="ph_link_title" placeholder="Titre (ex: Curry)" class="flex-1 border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-800 dark:text-white p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
+                            <select id="link-category" class="w-1/3 border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-800 dark:text-white p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400 text-xs font-bold">
+                                <option value="Plat Principal" data-i18n="cat_main">Plat</option><option value="Entrée" data-i18n="cat_starter">Entrée</option><option value="Dessert" data-i18n="cat_dessert">Dessert</option><option value="Petit-Dej / Brunch" data-i18n="cat_brunch">Brunch</option><option value="Apéro / Cocktail" data-i18n="cat_cocktail">Apéro</option><option value="Sauce / Autre" data-i18n="cat_other">Autre</option>
+                            </select>
+                        </div>
+                        <input type="url" id="link-url" placeholder="Lien URL (https://...)" class="border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-800 dark:text-white p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
+                        <button onclick="ajouterLien()" class="bg-blue-600 text-white py-2 rounded font-semibold hover:bg-blue-700 transition" data-i18n="btn_save_link">Sauvegarder le lien</button>
+                    </div>
+                    <div id="links-container" class="space-y-3"></div>
+                </section>
+            </div>
+        </div>
+
+        <div id="vue-courses" class="vue-app hidden">
+            <section class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-lg mb-8 border-t-4 border-amber-500 max-w-4xl mx-auto transition-colors duration-300">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+                    <h2 class="text-2xl font-bold text-slate-700 dark:text-slate-200"><i class="fas fa-shopping-cart mr-2 text-amber-500"></i><span data-i18n="title_courses">Ma Liste de Courses</span></h2>
+                    <div class="flex gap-2">
+                        <button onclick="effacerElementsCochesCourses()" class="text-xs bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 text-slate-700 dark:text-slate-200 px-3 py-2 rounded font-medium transition"><i class="fas fa-check-double mr-1"></i><span data-i18n="btn_clear_checked">Effacer cochés</span></button>
+                        <button onclick="viderListeCourses()" class="text-xs bg-red-100 dark:bg-red-900/30 hover:bg-red-200 text-red-700 dark:text-red-300 px-3 py-2 rounded font-medium transition"><i class="fas fa-trash mr-1"></i><span data-i18n="btn_clear_all">Tout effacer</span></button>
+                    </div>
+                </div>
+                <div class="flex gap-2 mb-6">
+                    <input type="text" id="course-custom-input" data-placeholder="ph_add_course" placeholder="Ajouter un article libre (ex: Lait d'avoine)..." class="flex-1 border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-800 dark:text-white p-3 rounded focus:outline-none focus:ring-2 focus:ring-amber-400">
+                    <button onclick="ajouterArticleLibreCourse()" class="bg-amber-500 text-white px-6 py-3 rounded font-bold hover:bg-amber-600 transition"><i class="fas fa-plus mr-1"></i><span data-i18n="btn_add">Ajouter</span></button>
+                </div>
+                <div id="courses-list-container" class="space-y-3"></div>
+            </section>
+        </div>
+
+        <div id="vue-donnees" class="vue-app hidden">
+            <section class="bg-white dark:bg-slate-800 p-8 rounded-xl shadow-lg mb-8 border-t-4 border-gray-500 transition-colors duration-300 max-w-4xl mx-auto text-center">
+                <h2 class="text-2xl font-bold text-slate-700 dark:text-slate-200 mb-6"><i class="fas fa-save mr-2 text-gray-500"></i><span data-i18n="title_data">Gestion des Données</span></h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg border border-green-200 dark:border-green-800/30">
+                        <i class="fas fa-download text-4xl text-green-600 mb-4"></i>
+                        <h3 class="font-bold text-lg mb-2 dark:text-white" data-i18n="sub_save">1. Sauvegarder</h3>
+                        <p class="text-xs text-gray-500 mb-4" data-i18n="desc_save">Télécharge toutes vos données dans un fichier.</p>
+                        <button onclick="exporterDonnees()" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition w-full" data-i18n="btn_download">Télécharger</button>
+                    </div>
+                    <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg border border-blue-200 dark:border-blue-800/30">
+                        <i class="fas fa-plus-circle text-4xl text-blue-600 mb-4"></i>
+                        <h3 class="font-bold text-lg mb-2 dark:text-white" data-i18n="sub_merge">2. Ajouter / Fusionner</h3>
+                        <p class="text-xs text-gray-500 mb-4" data-i18n="desc_merge">Ajoute le contenu d'un fichier à vos données existantes.</p>
+                        <input type="file" id="file-input-merge" class="hidden" onchange="fusionnerDonnees(this)">
+                        <button onclick="document.getElementById('file-input-merge').click()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition w-full" data-i18n="btn_add_file">Ajouter un fichier</button>
+                    </div>
+                    <div class="bg-orange-50 dark:bg-orange-900/20 p-6 rounded-lg border border-orange-200 dark:border-orange-800/30">
+                        <i class="fas fa-trash-restore text-4xl text-orange-600 mb-4"></i>
+                        <h3 class="font-bold text-lg mb-2 dark:text-white" data-i18n="sub_restore">3. Remplacer / Restaurer</h3>
+                        <p class="text-xs text-gray-500 mb-4" data-i18n="desc_restore">⚠️ EFFACE TOUT et remplace par le contenu du fichier.</p>
+                        <input type="file" id="file-input-restore" class="hidden" onchange="importerDonnees(this)">
+                        <button onclick="document.getElementById('file-input-restore').click()" class="bg-orange-600 text-white px-4 py-2 rounded hover:bg-orange-700 transition w-full" data-i18n="btn_restore">Restaurer (Efface tout)</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        window.toggleAccordion = function(drawerId, iconId) {
+            const drawer = document.getElementById(drawerId);
+            const icon = document.getElementById(iconId);
+            if(drawer && icon) {
+                drawer.classList.toggle('hidden');
+                if (drawer.classList.contains('hidden')) { icon.style.transform = 'rotate(0deg)'; } 
+                else { icon.style.transform = 'rotate(180deg)'; }
+            }
+        };
+
+        const translations = {
+            fr: {
+                nav_aliments: "Aliments", nav_creer: "Créer", nav_cuisiner: "Cuisiner", nav_carnet: "Carnet", nav_courses: "Courses", nav_restos: "Restos", nav_sauvegarde: "Sauvegarde", nav_accueil: "Accueil",
+                home_subtitle: "Votre assistant culinaire personnel. Gérez vos stocks, créez des recettes, trouvez l'inspiration selon votre frigo et sécurisez vos données.",
+                card_aliments_title: "Mes Aliments", card_aliments_desc: "Gérer mon stock",
+                card_creer_title: "Créer Recette", card_creer_desc: "Inventer ou importer",
+                card_cuisiner_title: "Que Cuisiner ?", card_cuisiner_desc: "Selon mes ingrédients",
+                card_carnet_title: "Mon Carnet", card_carnet_desc: "Voir mes recettes",
+                card_courses_title: "Mes Courses",
+                card_restos_title: "Restaurants",
+                link_manage_data: "Gérer mes sauvegardes / données",
+                title_aliments: "Répertoire d'Aliments", ph_food_name: "Nom (ex: Quinoa)", ph_food_cat: "Catégorie (ex: Céréale)", btn_add: "Ajouter",
+                title_new_recipe: "Nouvelle Recette", btn_quick_import: "Import Rapide", import_instr: "Copier-Coller le texte d'une recette ici :", ph_import: "Exemple: 200g de farine...", btn_analyze: "Analyser et Remplir",
+                ph_recipe_title: "Titre de votre recette...", cat_main: "🥘 Plat Principal", cat_starter: "🥬 Entrée", cat_dessert: "🍰 Dessert", cat_brunch: "🥐 Petit-Dej / Brunch", cat_cocktail: "🍹 Apéro / Cocktail", cat_other: "🥣 Sauce / Autre",
+                label_ingredients: "Ingrédients :", ph_qty: "Qté", unit_placeholder: "Unité...", ph_search: "Chercher...", ph_free_ing: "Ou ingrédient libre...", label_steps: "Étapes :", ph_step: "Décrivez l'étape...", btn_save_recipe: "Enregistrer ma Recette", btn_update_recipe: "Mettre à jour la Recette",
+                label_portions: "Portions", label_prep: "Prep (min)", label_cook: "Cuisson (min)", label_diff: "Difficulté", diff_easy: "🟢 Facile", diff_medium: "🟡 Moyen", diff_hard: "🔴 Difficile",
+                title_what_cook: "Que cuisiner ce soir ?", title_what_cook_noon: "Que cuisiner ce midi ?", title_what_cook_evening: "Que cuisiner ce soir ?",
+                subtitle_fridge: "Dans mon frigo :", ai_promo_title: "Rien ne vous tente ?", ai_promo_desc: "Demandez à l'IA de vous inventer une recette avec les ingrédients cochés !", btn_ask_ai: "Demander à l'IA",
+                subtitle_wvr_results: "Recettes WVR Correspondantes :", msg_select_ing: "Cochez des ingrédients à gauche...", subtitle_web_results: "Liens Web Tagués :", msg_no_web: "Aucun lien web trouvé.",
+                title_my_creations: "Mes Créations", title_world_recipes: "Recettes du Monde", title_web_finds: "Mes Trouvailles du Web", ph_link_title: "Titre (ex: Curry)", btn_save_link: "Sauvegarder le lien",
+                title_courses: "Ma Liste de Courses", ph_add_course: "Ajouter un article libre (ex: Lait d'avoine)...", btn_clear_checked: "Effacer cochés", btn_clear_all: "Tout effacer", msg_cart_empty: "Votre liste de courses est vide.", btn_add_to_cart: "Ajouter aux courses", alert_cart_added: "🛒 Ingrédients ajoutés à votre liste de courses !",
+                filter_fav: "❤️ Favoris uniquement", sort_alpha: "🔤 Nom", sort_rating: "⭐ Notes",
+                title_data: "Gestion des Données", sub_save: "1. Sauvegarder", desc_save: "Télécharge toutes vos données dans un fichier.", btn_download: "Télécharger",
+                sub_merge: "2. Ajouter / Fusionner", desc_merge: "Ajoute le contenu d'un fichier à vos données existantes.", btn_add_file: "Ajouter un fichier",
+                sub_restore: "3. Remplacer / Restaurer", desc_restore: "⚠️ EFFACE TOUT et remplace par le contenu du fichier.", btn_restore: "Restaurer (Efface tout)",
+                confirm_delete: "Supprimer ?", confirm_delete_recipe: "Supprimer cette recette ?", confirm_restore: "Importer un fichier remplacera vos données actuelles. Continuer ?",
+                alert_missing_fields: "Merci de remplir les champs !", alert_saved: "Sauvegardé !", alert_updated: "Mis à jour avec succès !", alert_analyzed: "Texte analysé !", alert_no_ing: "Sélectionnez d'abord des ingrédients à gauche !",
+                alert_copy_ok: "La demande a été copiée ! 📋\n\nVoulez-vous ouvrir Gemini dans un nouvel onglet ?", alert_fusion_ok: "Fusion terminée !",
+                empty_aliments: "Aucun aliment.", empty_recipes: "Aucune recette créée.", empty_links: "Aucun lien.",
+                label_open: "Ouvrir", label_del: "Supprimer", label_mod: "Modifier", label_ing: "INGRÉDIENTS", label_stp: "ÉTAPES", label_country: "Pays",
+                title_restos: "Mes Restaurants", ph_resto_name: "Nom du Restaurant", ph_resto_cuisine: "Type de Cuisine (ex: Indien)", ph_resto_address: "Adresse (ou Lien Google Maps)", ph_resto_website: "Site Web / Menu (URL)",
+                opt_100_veg: "🌱 100% Végétarien", opt_option_veg: "🥗 Option Végétarienne", btn_add_resto: "Ajouter le Restaurant", btn_update_resto: "Mettre à jour le Restaurant", empty_restos: "Aucun restaurant enregistré.", label_cuisine: "Cuisine", label_menu_web: "Voir le Menu / Site",
+                title_random_resto: "Où manger ?", desc_random_resto: "Laissez le hasard choisir pour vous !", btn_random: "Choix aléatoire", opt_all_cuisines: "Toutes les cuisines"
+            },
+            en: {
+                nav_aliments: "Foods", nav_creer: "Create", nav_cuisiner: "Cook", nav_carnet: "Book", nav_courses: "Shopping", nav_restos: "Restos", nav_sauvegarde: "Data", nav_accueil: "Home",
+                home_subtitle: "Your personal culinary assistant. Manage stock, create recipes, find inspiration based on your fridge, and secure your data.",
+                card_aliments_title: "My Foods", card_aliments_desc: "Manage stock",
+                card_creer_title: "Create Recipe", card_creer_desc: "Invent or import",
+                card_cuisiner_title: "What to Cook?", card_cuisiner_desc: "Based on ingredients",
+                card_carnet_title: "Recipe Book", card_carnet_desc: "View my recipes",
+                card_courses_title: "Shopping List",
+                card_restos_title: "Restaurants",
+                link_manage_data: "Manage backups / data",
+                title_aliments: "Food Directory", ph_food_name: "Name (e.g. Quinoa)", ph_food_cat: "Category (e.g. Cereal)", btn_add: "Add",
+                title_new_recipe: "New Recipe", btn_quick_import: "Quick Import", import_instr: "Copy-Paste recipe text here:", ph_import: "Example: 200g flour...", btn_analyze: "Analyze and Fill",
+                ph_recipe_title: "Recipe Title...", cat_main: "🥘 Main Course", cat_starter: "🥬 Starter", cat_dessert: "🍰 Dessert", cat_brunch: "🥐 Breakfast / Brunch", cat_cocktail: "🍹 Drink / Cocktail", cat_other: "🥣 Sauce / Other",
+                label_ingredients: "Ingredients:", ph_qty: "Qty", unit_placeholder: "Unit...", ph_search: "Search...", ph_free_ing: "Or free text...", label_steps: "Steps:", ph_step: "Describe step...", btn_save_recipe: "Save Recipe", btn_update_recipe: "Update Recipe",
+                label_portions: "Servings", label_prep: "Prep (min)", label_cook: "Cook (min)", label_diff: "Difficulty", diff_easy: "🟢 Easy", diff_medium: "🟡 Medium", diff_hard: "🔴 Hard",
+                title_what_cook: "What to cook tonight?", title_what_cook_noon: "What to cook this lunch?", title_what_cook_evening: "What to cook tonight?",
+                subtitle_fridge: "In my fridge:", ai_promo_title: "Nothing looks good?", ai_promo_desc: "Ask AI to invent a recipe with checked ingredients!", btn_ask_ai: "Ask AI",
+                subtitle_wvr_results: "Matching WVR Recipes:", msg_select_ing: "Check ingredients on the left...", subtitle_web_results: "Tagged Web Links:", msg_no_web: "No web links found.",
+                title_my_creations: "My Creations", title_world_recipes: "World Recipes", title_web_finds: "Web Finds", ph_link_title: "Title (e.g. Curry)", btn_save_link: "Save Link",
+                title_courses: "My Shopping List", ph_add_course: "Add item (e.g. Oat milk)...", btn_clear_checked: "Clear checked", btn_clear_all: "Clear all", msg_cart_empty: "Your shopping list is empty.", btn_add_to_cart: "Add to shopping list", alert_cart_added: "🛒 Ingredients added to your shopping list!",
+                filter_fav: "❤️ Favorites only", sort_alpha: "🔤 Name", sort_rating: "⭐ Ratings",
+                title_data: "Data Management", sub_save: "1. Backup", desc_save: "Download all data to a file.", btn_download: "Download",
+                sub_merge: "2. Add / Merge", desc_merge: "Add file content to existing data.", btn_add_file: "Add File",
+                sub_restore: "3. Replace / Restore", desc_restore: "⚠️ ERASES ALL and replaces with file content.", btn_restore: "Restore (Erase all)",
+                confirm_delete: "Delete?", confirm_delete_recipe: "Delete this recipe?", confirm_restore: "Importing will replace current data. Continue?",
+                alert_missing_fields: "Please fill in the fields!", alert_saved: "Saved!", alert_updated: "Successfully updated!", alert_analyzed: "Text analyzed!", alert_no_ing: "Select ingredients on the left first!",
+                alert_copy_ok: "Request copied! 📋\n\nOpen Gemini in a new tab?", alert_fusion_ok: "Merge complete!",
+                empty_aliments: "No food items.", empty_recipes: "No recipes created.", empty_links: "No links saved.",
+                label_open: "Open", label_del: "Delete", label_mod: "Edit", label_ing: "INGREDIENTS", label_stp: "STEPS", label_country: "Country",
+                title_restos: "My Restaurants", ph_resto_name: "Restaurant Name", ph_resto_cuisine: "Cuisine Type (e.g. Indian)", ph_resto_address: "Address (or Google Maps Link)", ph_resto_website: "Website / Menu (URL)",
+                opt_100_veg: "🌱 100% Vegetarian", opt_option_veg: "🥗 Veggie Options", btn_add_resto: "Add Restaurant", btn_update_resto: "Update Restaurant", empty_restos: "No restaurants saved.", label_cuisine: "Cuisine", label_menu_web: "View Menu / Website",
+                title_random_resto: "Where to eat?", desc_random_resto: "Let fate decide for you!", btn_random: "Random Choice", opt_all_cuisines: "All cuisines"
+            }
+        };
+
+        // --- CORE JS ---
+        let currentLang = localStorage.getItem('wvr_lang') || 'fr';
+        let aliments = JSON.parse(localStorage.getItem('wvr_aliments')) || [];
+        let recettes = JSON.parse(localStorage.getItem('wvr_recettes')) || [];
+        let liens = JSON.parse(localStorage.getItem('wvr_liens')) || [];
+        let restaurants = JSON.parse(localStorage.getItem('wvr_restaurants')) || [];
+        let courses = JSON.parse(localStorage.getItem('wvr_courses')) || [];
+        let activeRecipePortions = {};
+        let tempIngredients = []; let tempEtapes = [];
+        let indexModification = -1;
+        let indexModificationResto = -1;
+
+        function toggleLanguage() { currentLang = currentLang === 'fr' ? 'en' : 'fr'; localStorage.setItem('wvr_lang', currentLang); updateInterfaceLanguage(); }
+        function toggleTheme() { document.documentElement.classList.toggle('dark'); localStorage.setItem('wvr_theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light'); updateThemeIcons(); }
+        function updateThemeIcons() { const isDark = document.documentElement.classList.contains('dark'); document.querySelectorAll('.theme-icon').forEach(i => i.className = isDark ? 'theme-icon fas fa-sun' : 'theme-icon fas fa-moon'); }
+        function t(key) { return translations[currentLang][key] || key; }
+
+        function updateMealTitle() {
+            const hour = new Date().getHours();
+            const key = (hour >= 4 && hour < 15) ? 'title_what_cook_noon' : 'title_what_cook_evening';
+            const el = document.querySelector('[data-i18n="title_what_cook"]');
+            if(el) { el.setAttribute('data-i18n', key); el.textContent = t(key); }
+        }
+
+        function updateInterfaceLanguage() {
+            document.getElementById('lang-display').textContent = currentLang.toUpperCase();
+            document.querySelectorAll('[data-i18n]').forEach(el => { el.textContent = translations[currentLang][el.getAttribute('data-i18n')] || el.textContent; });
+            document.querySelectorAll('[data-placeholder]').forEach(el => { el.placeholder = translations[currentLang][el.getAttribute('data-placeholder')] || el.placeholder; });
+            updateMealTitle();
+            if(!document.getElementById('vue-aliments').classList.contains('hidden')) afficherAliments();
+            if(!document.getElementById('vue-bibliotheque').classList.contains('hidden')) { afficherRecettesSauvegardees(); afficherLiens(); }
+            if(!document.getElementById('vue-restaurants').classList.contains('hidden')) afficherRestaurants();
+            if(!document.getElementById('vue-courses').classList.contains('hidden')) afficherListeCourses();
+            genererCheckboxesIngredients();
+            afficherBadgeCourses();
+        }
+
+        function changerVue(idVueCible) {
+            document.querySelectorAll('.vue-app').forEach(vue => vue.classList.add('hidden')); 
+            document.getElementById(idVueCible).classList.remove('hidden');
+            const navBar = document.getElementById('nav-bar'); 
+            const btnThemeAccueil = document.getElementById('btn-theme-accueil');
+            if(idVueCible === 'vue-accueil') { navBar.classList.add('hidden'); if(btnThemeAccueil) btnThemeAccueil.classList.remove('hidden'); } else { navBar.classList.remove('hidden'); if(btnThemeAccueil) btnThemeAccueil.classList.add('hidden'); }
+            if(idVueCible === 'vue-creation') mettreAJourSelectIngredients();
+            if(idVueCible === 'vue-recherche') { genererCheckboxesIngredients(); updateMealTitle(); }
+            if(idVueCible === 'vue-restaurants') afficherRestaurants();
+            if(idVueCible === 'vue-courses') afficherListeCourses();
+            if(idVueCible === 'vue-bibliotheque') afficherRecettesSauvegardees();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            if (localStorage.getItem('wvr_theme') === 'dark' || (!('wvr_theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) { document.documentElement.classList.add('dark'); }
+            updateThemeIcons(); updateInterfaceLanguage();
+            afficherAliments(); afficherLiens(); afficherRecettesSauvegardees(); afficherRestaurants(); afficherListeCourses(); mettreAJourSelectIngredients();
+        });
+
+        // HELPER PORTIONS CALCULATOR
+        function calculerQuantiteAjustee(ingText, basePortions, targetPortions) {
+            const baseP = parseInt(basePortions) || 4;
+            const targetP = parseInt(targetPortions) || baseP;
+            if (baseP <= 0 || baseP === targetP) return ingText;
+            const ratio = targetP / baseP;
+            return ingText.replace(/\b(\d+(?:[\.,]\d+)?)\b/g, (match) => {
+                const val = parseFloat(match.replace(',', '.'));
+                if (isNaN(val)) return match;
+                const newVal = val * ratio;
+                const rounded = Math.round(newVal * 100) / 100;
+                return rounded.toString();
+            });
+        }
+
+        // STAR RATING RENDERER HELPER
+        function renderStars(currentNote, onClickFnName, idIndex) {
+            const note = parseInt(currentNote) || 0;
+            let html = '<div class="inline-flex items-center space-x-1 text-amber-400 text-sm">';
+            for(let i=1; i<=5; i++) {
+                const iconClass = i <= note ? 'fas fa-star' : 'far fa-star text-slate-300 dark:text-slate-600';
+                html += `<i onclick="${onClickFnName}(${idIndex}, ${i})" class="${iconClass} cursor-pointer hover:scale-125 transition-transform"></i>`;
+            }
+            html += '</div>';
+            return html;
+        }
+
+        // 1. ALIMENTS
+        function ajouterAliment() { const nom = document.getElementById('food-name').value; const categorie = document.getElementById('food-category').value; if (nom && categorie) { aliments.push({ nom, categorie }); sauvegarderTout(); afficherAliments(); mettreAJourSelectIngredients(); genererCheckboxesIngredients(); document.getElementById('food-name').value = ''; document.getElementById('food-category').value = ''; } else { alert(t('alert_missing_fields')); } }
+        function supprimerAliment(index) { if(confirm(t('confirm_delete'))) { aliments.splice(index, 1); sauvegarderTout(); afficherAliments(); mettreAJourSelectIngredients(); genererCheckboxesIngredients(); } }
+        function afficherAliments() {
+            const container = document.getElementById('food-list-container'); const datalist = document.getElementById('dl-categories'); container.innerHTML = ''; datalist.innerHTML = '';
+            if (aliments.length === 0) { container.innerHTML = `<p class="text-center text-gray-400 italic p-8 col-span-full">${t('empty_aliments')}</p>`; return; }
+            const groupes = {}; const categoriesUniques = new Set();
+            aliments.forEach((a, i) => { const item = { ...a, originalIndex: i }; const cat = a.categorie || 'Autre'; if (!groupes[cat]) groupes[cat] = []; groupes[cat].push(item); categoriesUniques.add(cat); });
+            Array.from(categoriesUniques).sort().forEach(cat => { const opt = document.createElement('option'); opt.value = cat; datalist.appendChild(opt); });
+            Object.keys(groupes).sort().forEach(cat => {
+                groupes[cat].sort((a, b) => (a.nom || "").localeCompare(b.nom || ""));
+                const section = document.createElement('div'); section.className = "bg-white dark:bg-slate-800 rounded-xl shadow border border-gray-100 dark:border-slate-700 overflow-hidden";
+                let rows = ''; groupes[cat].forEach(item => { rows += `<tr class="border-b border-gray-50 dark:border-slate-700/30 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition last:border-0"><td class="py-2 px-4 text-slate-700 dark:text-slate-300 text-sm">${item.nom}</td><td class="py-2 px-4 text-right"><button onclick="supprimerAliment(${item.originalIndex})" class="text-red-400 hover:text-red-600 transition p-1"><i class="fas fa-trash text-xs"></i></button></td></tr>`; });
+                section.innerHTML = `<div class="bg-slate-50 dark:bg-slate-700/50 p-3 border-b border-gray-100 dark:border-slate-600 flex justify-between items-center"><h3 class="font-bold text-lg text-slate-700 dark:text-slate-200">${cat}<span class="text-xs font-normal bg-slate-200 dark:bg-slate-600 text-slate-600 dark:text-slate-300 px-2 py-1 rounded-full ml-2">${groupes[cat].length}</span></h3></div><div class="max-h-64 overflow-y-auto"><table class="w-full text-left border-collapse"><tbody>${rows}</tbody></table></div>`;
+                container.appendChild(section);
+            });
+        }
+
+        // 2. CREATION
+        function nouvelleRecette() { 
+            indexModification = -1; 
+            document.getElementById('recipe-title').value = ''; 
+            document.getElementById('recipe-portions').value = 4;
+            document.getElementById('recipe-prep-time').value = '';
+            document.getElementById('recipe-cook-time').value = '';
+            document.getElementById('recipe-difficulty').value = 'Facile';
+            tempIngredients = []; tempEtapes = []; 
+            renderTempIngredients(); renderTempEtapes(); 
+            document.getElementById('creation-title').innerHTML = `<i class="fas fa-magic mr-2 text-orange-500"></i>${t('title_new_recipe')}`; 
+            document.getElementById('btn-save-recipe').textContent = t('btn_save_recipe'); 
+            changerVue('vue-creation'); 
+        }
+
+        function editerRecette(index) { 
+            indexModification = index; 
+            const r = recettes[index]; 
+            document.getElementById('recipe-title').value = r.titre; 
+            document.getElementById('recipe-category-select').value = r.categorie || 'Plat Principal'; 
+            document.getElementById('recipe-portions').value = r.portions || 4;
+            document.getElementById('recipe-prep-time').value = r.tempsPrep || '';
+            document.getElementById('recipe-cook-time').value = r.tempsCuisson || '';
+            document.getElementById('recipe-difficulty').value = r.difficulte || 'Facile';
+            tempIngredients = [...r.ingredients]; tempEtapes = [...r.etapes]; 
+            renderTempIngredients(); renderTempEtapes(); 
+            document.getElementById('creation-title').innerHTML = `<i class="fas fa-pen mr-2 text-blue-500"></i>${t('label_mod')}`; 
+            document.getElementById('btn-save-recipe').textContent = t('btn_update_recipe'); 
+            changerVue('vue-creation'); 
+        }
+
+        function sauvegarderRecette() {
+            const titre = document.getElementById('recipe-title').value; 
+            const cat = document.getElementById('recipe-category-select').value;
+            const portions = parseInt(document.getElementById('recipe-portions').value) || 4;
+            const tempsPrep = parseInt(document.getElementById('recipe-prep-time').value) || 0;
+            const tempsCuisson = parseInt(document.getElementById('recipe-cook-time').value) || 0;
+            const difficulte = document.getElementById('recipe-difficulty').value || 'Facile';
+
+            if (titre && (tempIngredients.length > 0 || tempEtapes.length > 0)) {
+                const existing = indexModification >= 0 ? recettes[indexModification] : {};
+                const recetteData = { 
+                    ...existing,
+                    titre: titre, 
+                    categorie: cat, 
+                    portions: portions,
+                    tempsPrep: tempsPrep,
+                    tempsCuisson: tempsCuisson,
+                    difficulte: difficulte,
+                    ingredients: [...tempIngredients], 
+                    etapes: [...tempEtapes], 
+                    date: new Date().toLocaleDateString(),
+                    favori: existing.favori || false,
+                    note: existing.note || 0
+                };
+                if (indexModification >= 0) { recettes[indexModification] = recetteData; alert(t('alert_updated')); } else { recettes.push(recetteData); }
+                sauvegarderTout(); afficherRecettesSauvegardees(); nouvelleRecette(); changerVue('vue-bibliotheque');
+            } else { alert(t('alert_missing_fields')); }
+        }
+
+        function toggleImportPanel() { document.getElementById('import-panel').classList.toggle('hidden'); }
+        function importerTexteIntelligent() { const text = document.getElementById('import-text').value; if(!text) return; const lines = text.split('\n'); let mode = 'unknown'; lines.forEach(l => { l=l.trim(); if(!l) return; if(l.toLowerCase().includes('ingrédient')) { mode='ingredients'; return; } if(l.toLowerCase().includes('étape') || l.toLowerCase().includes('préparation')) { mode='steps'; return; } if(/^\d+\./.test(l) || mode==='steps') tempEtapes.push(l.replace(/^\d+\.\s*/,'')); else tempIngredients.push(l.replace(/^[-*•]\s*/,'')); }); renderTempIngredients(); renderTempEtapes(); document.getElementById('import-text').value=''; toggleImportPanel(); alert(t('alert_analyzed')); }
+        function mettreAJourSelectIngredients() { const dl = document.getElementById('dl-aliments'); if(!dl) return; dl.innerHTML = ''; [...aliments].sort((a,b) => (a.nom||"").localeCompare(b.nom||"")).forEach(a => { if(a.nom) { const opt = document.createElement('option'); opt.value = a.nom; dl.appendChild(opt); } }); }
+        function ajouterIngredientRecette() { const qty = document.getElementById('recipe-ingredient-qty').value; const unit = document.getElementById('recipe-ingredient-unit').value; const nom = document.getElementById('recipe-ingredient-select').value; if (nom) { let txt = nom; if (qty) txt = `${qty} ${unit} de ${nom}`.trim(); tempIngredients.push(txt); renderTempIngredients(); document.getElementById('recipe-ingredient-qty').value=''; document.getElementById('recipe-ingredient-select').value=''; } else { alert(t('alert_missing_fields')); } }
+        function ajouterIngredientLibre() { const txt = document.getElementById('recipe-ingredient-free').value; if(txt) { tempIngredients.push(txt); renderTempIngredients(); document.getElementById('recipe-ingredient-free').value=''; } }
+        function renderTempIngredients() { document.getElementById('current-recipe-ingredients').innerHTML = tempIngredients.map((ing, i) => `<li class="flex justify-between items-center bg-orange-100 dark:bg-slate-700 p-2 rounded"><span><i class="fas fa-check text-green-500 mr-2 text-xs"></i>${ing}</span><div class="flex space-x-2"><button onclick="modifierIngredientTemp(${i})" class="text-blue-400"><i class="fas fa-pen"></i></button><button onclick="supprimerIngredientTemp(${i})" class="text-red-400"><i class="fas fa-times"></i></button></div></li>`).join(''); }
+        function modifierIngredientTemp(i) { const val = prompt("Modifier :", tempIngredients[i]); if(val) { tempIngredients[i] = val; renderTempIngredients(); } }
+        function supprimerIngredientTemp(i) { tempIngredients.splice(i, 1); renderTempIngredients(); }
+        function ajouterEtapeRecette() { const txt = document.getElementById('recipe-step'); if(txt.value) { tempEtapes.push(txt.value); renderTempEtapes(); txt.value=''; } }
+        function renderTempEtapes() { document.getElementById('current-recipe-steps').innerHTML = tempEtapes.map((e, i) => `<li class="flex justify-between items-start bg-orange-100 dark:bg-slate-700 p-2 rounded"><span class="flex-1"><strong>${i+1}.</strong> ${e}</span><div class="flex space-x-2 ml-2 mt-1"><button onclick="modifierEtapeTemp(${i})" class="text-blue-400"><i class="fas fa-pen"></i></button><button onclick="supprimerEtapeTemp(${i})" class="text-red-400"><i class="fas fa-times"></i></button></div></li>`).join(''); }
+        function modifierEtapeTemp(i) { const val = prompt("Modifier :", tempEtapes[i]); if(val) { tempEtapes[i] = val; renderTempEtapes(); } }
+        function supprimerEtapeTemp(i) { tempEtapes.splice(i, 1); renderTempEtapes(); }
+
+        // 3. CARNET & FAVORIS / NOTES / PORTIONS
+        function toggleFavoriRecette(index) {
+            recettes[index].favori = !recettes[index].favori;
+            sauvegarderTout();
+            afficherRecettesSauvegardees();
+        }
+
+        function noteRecette(index, rating) {
+            recettes[index].note = rating;
+            sauvegarderTout();
+            afficherRecettesSauvegardees();
+        }
+
+        function changerPortionsCarnet(index, delta) {
+            const baseP = recettes[index].portions || 4;
+            const currentP = activeRecipePortions[index] || baseP;
+            const newP = Math.max(1, currentP + delta);
+            activeRecipePortions[index] = newP;
+            afficherRecettesSauvegardees();
+        }
+
+        function afficherRecettesSauvegardees() {
+            const containerPerso = document.getElementById('saved-recipes-container');
+            const containerWorld = document.getElementById('world-recipes-container');
+            if(!containerPerso || !containerWorld) return;
+            containerPerso.innerHTML = ''; containerWorld.innerHTML = '';
+
+            const filterFavOnly = document.getElementById('recipe-filter-fav')?.checked || false;
+            const sortBy = document.getElementById('recipe-sort-select')?.value || 'alpha';
+
+            let recipesPerso = recettes.filter(r => !r.isWorld);
+            let recipesWorld = recettes.filter(r => r.isWorld);
+
+            if(filterFavOnly) {
+                recipesPerso = recipesPerso.filter(r => r.favori);
+                recipesWorld = recipesWorld.filter(r => r.favori);
+            }
+
+            if(sortBy === 'rating') {
+                recipesPerso.sort((a, b) => (b.note || 0) - (a.note || 0));
+                recipesWorld.sort((a, b) => (b.note || 0) - (a.note || 0));
+            } else {
+                recipesPerso.sort((a, b) => (a.titre || "").localeCompare(b.titre || ""));
+                recipesWorld.sort((a, b) => (a.titre || "").localeCompare(b.titre || ""));
+            }
+
+            const renderGroup = (listRecettes, container) => {
+                if (listRecettes.length === 0) { container.innerHTML = `<p class="text-gray-400 text-sm italic py-2">${t('empty_recipes')}</p>`; return; }
+                const groupes = {};
+                listRecettes.forEach(r => { const c = r.categorie || "Plat Principal"; if(!groupes[c]) groupes[c] = []; groupes[c].push({...r, originalIndex: recettes.indexOf(r)}); });
+                
+                Object.keys(groupes).forEach(cat => {
+                    const title = document.createElement('h3');
+                    title.className = "text-lg font-bold text-orange-600 dark:text-orange-400 mt-4 mb-2 border-b border-orange-200 dark:border-slate-600 pb-1 flex justify-between items-center";
+                    title.innerHTML = `<span>${cat} <span class="text-xs text-gray-400 ml-2">(${groupes[cat].length})</span></span>`;
+                    container.appendChild(title);
+                    
+                    groupes[cat].forEach(r => {
+                        const card = document.createElement('div');
+                        card.className = "bg-orange-50 dark:bg-slate-700/50 border border-orange-100 dark:border-slate-600 rounded-lg shadow-sm overflow-hidden mb-3";
+                        const did = `rd-${r.originalIndex}`; const iid = `ri-${r.originalIndex}`;
+                        const originTag = r.pays ? `<span class="ml-2 text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded">${r.pays}</span>` : '';
+                        const baseP = r.portions || 4;
+                        const currentP = activeRecipePortions[r.originalIndex] || baseP;
+
+                        // Badges temps & difficulte
+                        const prepText = r.tempsPrep ? `${r.tempsPrep}m prep` : '';
+                        const cookText = r.tempsCuisson ? `${r.tempsCuisson}m cuisson` : '';
+                        const totalTime = (prepText || cookText) ? `⏱️ ${[prepText, cookText].filter(Boolean).join(' + ')}` : '';
+                        const timeBadge = totalTime ? `<span class="text-xs bg-orange-200 dark:bg-slate-600 text-orange-900 dark:text-orange-100 px-2 py-0.5 rounded font-medium">${totalTime}</span>` : '';
+                        
+                        let diffBadgeColor = 'bg-green-100 text-green-800';
+                        if(r.difficulte === 'Moyen') diffBadgeColor = 'bg-yellow-100 text-yellow-800';
+                        if(r.difficulte === 'Difficile') diffBadgeColor = 'bg-red-100 text-red-800';
+                        const diffBadge = r.difficulte ? `<span class="text-xs ${diffBadgeColor} px-2 py-0.5 rounded font-semibold">${r.difficulte}</span>` : '';
+
+                        const heartIcon = r.favori ? '<i class="fas fa-heart text-red-500 text-base"></i>' : '<i class="far fa-heart text-slate-400 hover:text-red-400 text-base"></i>';
+                        const starsHtml = renderStars(r.note || 0, 'noteRecette', r.originalIndex);
+
+                        const adjustedIngredients = r.ingredients.map(ing => calculerQuantiteAjustee(ing, baseP, currentP));
+
+                        card.innerHTML = `
+                        <div class="p-3 flex flex-col gap-2">
+                            <div class="flex justify-between items-center cursor-pointer" onclick="toggleAccordion('${did}', '${iid}')">
+                                <div class="flex items-center gap-2 flex-1 truncate">
+                                    <button onclick="event.stopPropagation(); toggleFavoriRecette(${r.originalIndex})" class="p-1 hover:scale-110 transition-transform">${heartIcon}</button>
+                                    <h4 class="font-bold text-slate-800 dark:text-white truncate">${r.titre} ${originTag}</h4>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    ${starsHtml}
+                                    <i id="${iid}" class="fas fa-chevron-down text-orange-400 transition-transform"></i>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap items-center gap-2 text-xs">
+                                ${timeBadge}
+                                ${diffBadge}
+                                <span class="text-slate-500 dark:text-slate-400">(${baseP} pers. de base)</span>
+                            </div>
+                        </div>
+                        <div id="${did}" class="hidden px-3 pb-3 border-t border-orange-200 dark:border-slate-600 bg-white dark:bg-slate-700">
+                            <div class="mt-3 bg-orange-100/60 dark:bg-slate-800 p-2 rounded flex items-center justify-between">
+                                <span class="text-xs font-bold text-orange-900 dark:text-orange-200"><i class="fas fa-users mr-1"></i>Portions ajustées :</span>
+                                <div class="flex items-center gap-2">
+                                    <button onclick="changerPortionsCarnet(${r.originalIndex}, -1)" class="w-6 h-6 rounded bg-white dark:bg-slate-700 border text-slate-700 dark:text-white font-bold hover:bg-orange-200 flex items-center justify-center">-</button>
+                                    <span class="font-extrabold text-sm px-2 text-orange-800 dark:text-orange-300">${currentP} pers.</span>
+                                    <button onclick="changerPortionsCarnet(${r.originalIndex}, 1)" class="w-6 h-6 rounded bg-white dark:bg-slate-700 border text-slate-700 dark:text-white font-bold hover:bg-orange-200 flex items-center justify-center">+</button>
+                                </div>
+                            </div>
+                            <div class="mt-3">
+                                <strong class="text-xs uppercase text-orange-700 dark:text-orange-300">${t('label_ing')}:</strong>
+                                <ul class="list-disc pl-5 text-sm text-gray-700 dark:text-gray-300 mt-1 space-y-1">
+                                    ${adjustedIngredients.map(ing => `<li>${ing}</li>`).join('')}
+                                </ul>
+                            </div>
+                            <div class="mt-3">
+                                <strong class="text-xs uppercase text-orange-700 dark:text-orange-300">${t('label_stp')}:</strong>
+                                <ol class="list-decimal pl-5 text-sm text-gray-700 dark:text-gray-300 mt-1 space-y-1">
+                                    ${r.etapes.map(e=>`<li>${e}</li>`).join('')}
+                                </ol>
+                            </div>
+                            <div class="mt-4 pt-2 border-t border-gray-100 dark:border-slate-600 flex flex-wrap justify-between items-center gap-2">
+                                <button onclick="ajouterRecetteAuxCourses(${r.originalIndex})" class="bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold px-3 py-1.5 rounded shadow transition"><i class="fas fa-cart-plus mr-1"></i> ${t('btn_add_to_cart')}</button>
+                                <div class="flex gap-2">
+                                    <button onclick="editerRecette(${r.originalIndex})" class="text-blue-500 hover:text-blue-700 text-xs border border-blue-200 dark:border-slate-500 px-2 py-1 rounded"><i class="fas fa-pen"></i> ${t('label_mod')}</button>
+                                    <button onclick="supprimerRecette(${r.originalIndex})" class="text-red-500 hover:text-red-700 text-xs border border-red-200 dark:border-slate-500 px-2 py-1 rounded"><i class="fas fa-trash"></i> ${t('label_del')}</button>
+                                </div>
+                            </div>
+                        </div>`;
+                        container.appendChild(card);
+                    });
+                });
+            };
+            renderGroup(recipesPerso, containerPerso);
+            renderGroup(recipesWorld, containerWorld);
+        }
+        function supprimerRecette(i) { if(confirm(t('confirm_delete_recipe'))) { recettes.splice(i, 1); sauvegarderTout(); afficherRecettesSauvegardees(); } }
+
+        // 4. LISTE DE COURSES
+        function ajouterRecetteAuxCourses(indexRecette) {
+            const r = recettes[indexRecette];
+            if(!r) return;
+            const baseP = r.portions || 4;
+            const currentP = activeRecipePortions[indexRecette] || baseP;
+            const ingredientsAjustes = r.ingredients.map(ing => calculerQuantiteAjustee(ing, baseP, currentP));
+
+            ingredientsAjustes.forEach(ingText => {
+                courses.push({
+                    id: Date.now() + Math.random(),
+                    texte: ingText,
+                    recetteSource: r.titre,
+                    coche: false
+                });
+            });
+            sauvegarderTout();
+            afficherBadgeCourses();
+            alert(t('alert_cart_added'));
+        }
+
+        function ajouterArticleLibreCourse() {
+            const input = document.getElementById('course-custom-input');
+            const txt = input.value.trim();
+            if(txt) {
+                courses.push({
+                    id: Date.now() + Math.random(),
+                    texte: txt,
+                    recetteSource: 'Manuel',
+                    coche: false
+                });
+                input.value = '';
+                sauvegarderTout();
+                afficherListeCourses();
+            }
+        }
+
+        function cocherElementCourse(index) {
+            courses[index].coche = !courses[index].coche;
+            sauvegarderTout();
+            afficherListeCourses();
+        }
+
+        function supprimerElementCourse(index) {
+            courses.splice(index, 1);
+            sauvegarderTout();
+            afficherListeCourses();
+        }
+
+        function effacerElementsCochesCourses() {
+            courses = courses.filter(c => !c.coche);
+            sauvegarderTout();
+            afficherListeCourses();
+        }
+
+        function viderListeCourses() {
+            if(confirm(t('confirm_delete'))) {
+                courses = [];
+                sauvegarderTout();
+                afficherListeCourses();
+            }
+        }
+
+        function afficherBadgeCourses() {
+            const badge = document.getElementById('badge-courses');
+            if(!badge) return;
+            const countNonCoches = courses.filter(c => !c.coche).length;
+            if(countNonCoches > 0) {
+                badge.textContent = countNonCoches;
+                badge.classList.remove('hidden');
+            } else {
+                badge.classList.add('hidden');
+            }
+        }
+
+        function afficherListeCourses() {
+            const container = document.getElementById('courses-list-container');
+            if(!container) return;
+            container.innerHTML = '';
+            afficherBadgeCourses();
+
+            if(courses.length === 0) {
+                container.innerHTML = `<p class="text-center text-gray-400 italic p-8">${t('msg_cart_empty')}</p>`;
+                return;
+            }
+
+            courses.forEach((item, i) => {
+                const row = document.createElement('div');
+                row.className = `flex items-center justify-between p-3 rounded-lg border transition ${item.coche ? 'bg-slate-100 dark:bg-slate-800 border-slate-200 dark:border-slate-700 opacity-60' : 'bg-amber-50 dark:bg-slate-700/60 border-amber-200 dark:border-slate-600 shadow-sm'}`;
+                const checkedAttr = item.coche ? 'checked' : '';
+                const lineThroughClass = item.coche ? 'line-through text-slate-400 dark:text-slate-500' : 'text-slate-800 dark:text-slate-100 font-medium';
+                const sourceBadge = item.recetteSource !== 'Manuel' ? `<span class="ml-2 text-xs bg-amber-200 dark:bg-amber-900/60 text-amber-900 dark:text-amber-200 px-2 py-0.5 rounded font-normal">${item.recetteSource}</span>` : '';
+
+                row.innerHTML = `
+                    <div class="flex items-center space-x-3 flex-1 truncate">
+                        <input type="checkbox" onchange="cocherElementCourse(${i})" ${checkedAttr} class="w-5 h-5 text-amber-600 rounded focus:ring-amber-400 cursor-pointer">
+                        <span class="${lineThroughClass} text-sm cursor-pointer truncate" onclick="cocherElementCourse(${i})">${item.texte} ${sourceBadge}</span>
+                    </div>
+                    <button onclick="supprimerElementCourse(${i})" class="text-red-400 hover:text-red-600 p-1 ml-2"><i class="fas fa-trash text-xs"></i></button>
+                `;
+                container.appendChild(row);
+            });
+        }
+
+        // 5. RECHERCHE
+        function genererCheckboxesIngredients() {
+            const container = document.getElementById('search-ingredients-container'); container.innerHTML = '';
+            if (aliments.length === 0) { container.innerHTML = `<p class="text-center text-gray-400 italic">${t('empty_aliments')}</p>`; return; }
+            const groupes = {}; aliments.forEach((a, i) => { const c = a.categorie || 'Autre'; if(!groupes[c]) groupes[c] = []; groupes[c].push({...a, id: i}); });
+            Object.keys(groupes).sort().forEach((cat, idx) => {
+                groupes[cat].sort((a, b) => (a.nom||"").localeCompare(b.nom||""));
+                const did = `sd-${idx}`; const iid = `si-${idx}`; const cid = `sc-${idx}`;
+                const wrapper = document.createElement('div'); wrapper.className = "bg-purple-50 dark:bg-slate-700/50 border border-purple-100 dark:border-slate-600 rounded-lg overflow-hidden";
+                const btn = document.createElement('button'); btn.className = "w-full flex justify-between items-center p-3 bg-purple-100 dark:bg-slate-600 text-purple-900 dark:text-purple-100 font-bold transition hover:bg-purple-200";
+                btn.onclick = () => window.toggleAccordion(did, iid);
+                btn.innerHTML = `<span>${cat} <span id="${cid}" class="text-xs font-normal opacity-70 ml-2">(0/${groupes[cat].length})</span></span><i id="${iid}" class="fas fa-chevron-down transition-transform"></i>`;
+                const content = document.createElement('div'); content.id = did; content.className = "hidden p-3 grid grid-cols-1 gap-2 bg-white dark:bg-slate-800";
+                groupes[cat].forEach((a, i) => {
+                    const row = document.createElement('div'); row.className = "flex items-center space-x-2";
+                    const cb = document.createElement('input'); cb.type = "checkbox"; cb.value = a.nom; cb.dataset.cat = idx; cb.className = "w-4 h-4 text-purple-600 rounded";
+                    cb.onchange = () => { rechercherRecettes(); updateCounters(); };
+                    const lbl = document.createElement('label'); lbl.className = "text-sm text-slate-700 dark:text-slate-300 cursor-pointer truncate"; lbl.textContent = a.nom;
+                    row.appendChild(cb); row.appendChild(lbl); content.appendChild(row);
+                });
+                wrapper.appendChild(btn); wrapper.appendChild(content); container.appendChild(wrapper);
+            });
+        }
+        function updateCounters() { const counts = {}; document.querySelectorAll('#search-ingredients-container input[type="checkbox"]').forEach(cb => { const c = cb.dataset.cat; if(!counts[c]) counts[c] = {t:0, v:0}; counts[c].t++; if(cb.checked) counts[c].v++; }); Object.keys(counts).forEach(k => { const sp = document.getElementById(`sc-${k}`); if(sp) sp.textContent = `(${counts[k].v}/${counts[k].t})`; }); }
+        function askAI() { const ing = Array.from(document.querySelectorAll('#search-ingredients-container input:checked')).map(c => c.value).join(', '); if(!ing) return alert(t('alert_no_ing')); const p = currentLang === 'fr' ? `Recette végétarienne avec : ${ing}` : `Vegetarian recipe with: ${ing}`; navigator.clipboard.writeText(p).then(() => { if(confirm(t('alert_copy_ok'))) window.open("https://gemini.google.com/app", "_blank"); }); }
+        function rechercherRecettes() {
+            const ings = Array.from(document.querySelectorAll('#search-ingredients-container input:checked')).map(c => c.value.toLowerCase());
+            const cats = Array.from(document.querySelectorAll('#filters-container input:checked')).map(c => c.value);
+            const resR = document.getElementById('search-results'); const resL = document.getElementById('search-results-web');
+            resR.innerHTML = ''; resL.innerHTML = '';
+            if(ings.length === 0) { resR.innerHTML = `<p class="text-gray-400 italic text-sm col-span-full">${t('msg_select_ing')}</p>`; return; }
+            const filterFn = (item) => { const matchI = ings.some(i => (item.ingredients || []).join(' ').toLowerCase().includes(i)); const matchC = cats.length === 0 || cats.includes(item.categorie); return matchI && matchC; };
+            const recs = recettes.filter(filterFn); const lnks = liens.filter(filterFn);
+            if(recs.length === 0) resR.innerHTML = '<p class="text-center text-gray-400 italic col-span-full">Rien trouvé.</p>'; else recs.forEach(r => { const div = document.createElement('div'); div.className = "bg-white dark:bg-slate-700 p-4 rounded-lg shadow border-l-4 border-orange-500 transition hover:shadow-lg"; div.innerHTML = `<h4 class="font-bold text-slate-800 dark:text-white">${r.titre}</h4><p class="text-sm text-gray-600 dark:text-gray-300 truncate">${r.ingredients.join(', ')}</p><button onclick="changerVue('vue-bibliotheque')" class="text-xs bg-gray-100 dark:bg-slate-600 px-2 py-1 rounded mt-2">Voir</button>`; resR.appendChild(div); });
+            if(lnks.length === 0) resL.innerHTML = '<p class="text-center text-gray-400 italic col-span-full">Rien trouvé.</p>'; else lnks.forEach(l => { const div = document.createElement('div'); div.className = "bg-blue-50 dark:bg-slate-800 p-4 rounded-lg shadow border-l-4 border-blue-500 transition hover:shadow-lg"; div.innerHTML = `<h4 class="font-bold text-blue-800 dark:text-blue-400 truncate">${l.titre}</h4><a href="${l.url}" target="_blank" class="text-xs bg-white border px-2 py-1 rounded inline-block mt-2">Ouvrir</a>`; resL.appendChild(div); });
+        }
+
+        // 6. LIENS
+        function ajouterLien() { const t = document.getElementById('link-title').value; const u = document.getElementById('link-url').value; const c = document.getElementById('link-category').value; if(t && u) { liens.push({titre:t, url:u, categorie:c, ingredients:[]}); sauvegarderTout(); afficherLiens(); document.getElementById('link-title').value=''; document.getElementById('link-url').value=''; } else alert(t('alert_missing_fields')); }
+        function afficherLiens() {
+            const container = document.getElementById('links-container'); container.innerHTML = '';
+            if (liens.length === 0) { container.innerHTML = `<p class="text-gray-400 italic text-center">${t('empty_links')}</p>`; return; }
+            const groupes = {}; liens.forEach((l, i) => { const c = l.categorie || "Autre"; if(!groupes[c]) groupes[c] = []; groupes[c].push({...l, originalIndex:i}); });
+            Object.keys(groupes).forEach(cat => {
+                const did = `wl-${cat}`; const iid = `wi-${cat}`;
+                const wrapper = document.createElement('div'); wrapper.className = "mb-2";
+                wrapper.innerHTML = `<button onclick="toggleAccordion('${did}', '${iid}')" class="w-full flex justify-between items-center p-3 bg-blue-100 dark:bg-slate-700 text-blue-900 dark:text-blue-100 font-bold rounded-lg transition"><span>${cat} <span class="text-xs font-normal opacity-70 ml-2">(${groupes[cat].length})</span></span><i id="${iid}" class="fas fa-chevron-down transition-transform"></i></button><div id="${did}" class="hidden mt-2 space-y-2 pl-2">${groupes[cat].map(l => `<div class="bg-white dark:bg-slate-700 p-3 rounded border border-blue-100 dark:border-slate-600 shadow-sm"><div class="flex justify-between"><a href="${l.url}" target="_blank" class="text-blue-700 dark:text-blue-400 font-medium truncate">${l.titre}</a><button onclick="supprimerLien(${l.originalIndex})" class="text-red-400"><i class="fas fa-trash"></i></button></div><div class="bg-slate-50 dark:bg-slate-800 p-2 rounded text-sm mt-2"><div class="flex flex-wrap gap-2 mb-2" id="tags-container-${l.originalIndex}">${(l.ingredients || []).map((tag, tagIdx) => `<span class="bg-white dark:bg-slate-600 border border-gray-200 dark:border-slate-500 px-2 rounded-full text-xs flex items-center">${tag}<button onclick="supprimerIngredientLien(${l.originalIndex}, ${tagIdx})" class="ml-2 text-red-400">×</button></span>`).join('')}</div><div class="flex gap-2"><input type="text" id="tag-input-${l.originalIndex}" placeholder="Ajouter..." class="flex-1 text-xs border border-gray-300 dark:border-slate-500 bg-white dark:bg-slate-700 p-1 rounded"><button onclick="ajouterIngredientLien(${l.originalIndex})" class="bg-blue-500 text-white text-xs px-2 rounded">Ok</button></div></div></div>`).join('')}</div>`;
+                container.appendChild(wrapper);
+            });
+        }
+        function ajouterIngredientLien(index) { const input = document.getElementById(`tag-input-${index}`); const val = input.value; if(val) { if(!liens[index].ingredients) liens[index].ingredients = []; liens[index].ingredients.push(val); sauvegarderTout(); afficherLiens(); } }
+        function supprimerIngredientLien(indexLien, indexIng) { liens[indexLien].ingredients.splice(indexIng, 1); sauvegarderTout(); afficherLiens(); }
+        function supprimerLien(index) { liens.splice(index, 1); sauvegarderTout(); afficherLiens(); }
+
+        // 7. RESTAURANTS & FAVORIS / NOTES
+        function toggleFavoriRestaurant(index) {
+            restaurants[index].favori = !restaurants[index].favori;
+            sauvegarderTout();
+            afficherRestaurants();
+        }
+
+        function noteRestaurant(index, rating) {
+            restaurants[index].note = rating;
+            sauvegarderTout();
+            afficherRestaurants();
+        }
+
+        function sauvegarderRestaurant() {
+            const nom = document.getElementById('resto-name').value;
+            const cuisine = document.getElementById('resto-cuisine').value;
+            const adresse = document.getElementById('resto-address').value;
+            const website = document.getElementById('resto-website').value;
+            const status = document.getElementById('resto-status').value;
+            
+            if(nom && cuisine) {
+                const existing = indexModificationResto >= 0 ? restaurants[indexModificationResto] : {};
+                const restoData = {
+                    ...existing,
+                    nom, cuisine, adresse, website, status,
+                    favori: existing.favori || false,
+                    note: existing.note || 0
+                };
+                if (indexModificationResto >= 0) {
+                    restaurants[indexModificationResto] = restoData;
+                    alert(t('alert_updated'));
+                } else {
+                    restaurants.push(restoData);
+                }
+                sauvegarderTout(); resetRestoForm(); afficherRestaurants();
+            } else { alert(t('alert_missing_fields')); }
+        }
+
+        function editerRestaurant(index) {
+            indexModificationResto = index;
+            const r = restaurants[index];
+            document.getElementById('resto-name').value = r.nom;
+            document.getElementById('resto-cuisine').value = r.cuisine;
+            document.getElementById('resto-address').value = r.adresse || '';
+            document.getElementById('resto-website').value = r.website || '';
+            document.getElementById('resto-status').value = r.status;
+            
+            document.getElementById('resto-form-title').innerHTML = `<i class="fas fa-pen mr-2 text-blue-500"></i>${t('label_mod')}`;
+            document.getElementById('btn-save-resto').innerHTML = `<i class="fas fa-save mr-2"></i><span data-i18n="btn_update_resto">${t('btn_update_resto')}</span>`;
+            document.getElementById('btn-cancel-resto').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function resetRestoForm() {
+            indexModificationResto = -1;
+            document.getElementById('resto-name').value = '';
+            document.getElementById('resto-cuisine').value = '';
+            document.getElementById('resto-address').value = '';
+            document.getElementById('resto-website').value = '';
+            
+            document.getElementById('resto-form-title').innerHTML = `<i class="fas fa-store mr-2 text-red-500"></i><span data-i18n="title_restos">${t('title_restos')}</span>`;
+            document.getElementById('btn-save-resto').innerHTML = `<i class="fas fa-plus mr-2"></i><span data-i18n="btn_add_resto">${t('btn_add_resto')}</span>`;
+            document.getElementById('btn-cancel-resto').classList.add('hidden');
+        }
+
+        function supprimerRestaurant(index) { if(confirm(t('confirm_delete'))) { restaurants.splice(index, 1); sauvegarderTout(); afficherRestaurants(); } }
+        
+        function afficherRestaurants() {
+            const container = document.getElementById('restaurants-container'); container.innerHTML = '';
+            const selectRandom = document.getElementById('random-cuisine-select'); 
+            selectRandom.innerHTML = `<option value="">${t('opt_all_cuisines')}</option>`;
+
+            if(restaurants.length === 0) { container.innerHTML = `<p class="text-gray-400 italic text-center col-span-full">${t('empty_restos')}</p>`; return; }
+            
+            const filterFavOnly = document.getElementById('resto-filter-fav')?.checked || false;
+            const sortBy = document.getElementById('resto-sort-select')?.value || 'alpha';
+
+            let listRestos = [...restaurants].map((r, i) => ({ ...r, originalIndex: i }));
+
+            if(filterFavOnly) {
+                listRestos = listRestos.filter(r => r.favori);
+            }
+
+            if(sortBy === 'rating') {
+                listRestos.sort((a, b) => (b.note || 0) - (a.note || 0));
+            } else {
+                listRestos.sort((a, b) => (a.nom || "").localeCompare(b.nom || ""));
+            }
+
+            const groupes = {};
+            listRestos.forEach((resto) => {
+                const c = resto.cuisine || 'Autre';
+                if(!groupes[c]) groupes[c] = [];
+                groupes[c].push(resto);
+            });
+
+            Object.keys(groupes).sort().forEach(cat => {
+                const opt = document.createElement('option'); opt.value = cat; opt.textContent = cat; selectRandom.appendChild(opt);
+            });
+
+            Object.keys(groupes).sort().forEach((cat, idx) => {
+                const did = `resto-cat-${idx}`; const iid = `resto-icon-${idx}`;
+                const wrapper = document.createElement('div'); wrapper.className = "mb-4 w-full";
+                
+                wrapper.innerHTML = `
+                    <button onclick="toggleAccordion('${did}', '${iid}')" class="w-full flex justify-between items-center p-4 bg-red-100 dark:bg-slate-700 text-red-900 dark:text-red-100 font-bold rounded-xl hover:bg-red-200 dark:hover:bg-slate-600 transition shadow-sm">
+                        <span>${cat} <span class="text-xs font-normal opacity-70 ml-2">(${groupes[cat].length})</span></span>
+                        <i id="${iid}" class="fas fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div id="${did}" class="hidden mt-2 grid grid-cols-1 xl:grid-cols-2 gap-4 pl-1 pr-1 pb-2">
+                        ${groupes[cat].map(resto => {
+                            const mapLink = resto.adresse ? (resto.adresse.startsWith('http') ? resto.adresse : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(resto.nom + ' ' + resto.adresse)}`) : '';
+                            const statusColor = resto.status.includes('100%') ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800';
+                            const webLinkHtml = resto.website ? `<a href="${resto.website}" target="_blank" class="text-sm text-green-600 hover:underline flex items-center"><i class="fas fa-link mr-1"></i> ${t('label_menu_web')}</a>` : '';
+                            const mapLinkHtml = resto.adresse ? `<a href="${mapLink}" target="_blank" class="text-sm text-blue-500 hover:underline flex items-center"><i class="fas fa-map-marker-alt mr-1"></i> ${t('label_open')} Map</a>` : '';
+                            const heartIcon = resto.favori ? '<i class="fas fa-heart text-red-500 text-base"></i>' : '<i class="far fa-heart text-slate-400 hover:text-red-400 text-base"></i>';
+                            const starsHtml = renderStars(resto.note || 0, 'noteRestaurant', resto.originalIndex);
+
+                            return `
+                            <div class="bg-white dark:bg-slate-700 p-4 rounded-lg shadow border-l-4 border-red-500 transition hover:shadow-md">
+                                <div class="flex justify-between items-start mb-2">
+                                    <div class="flex items-center gap-2 truncate">
+                                        <button onclick="toggleFavoriRestaurant(${resto.originalIndex})" class="p-1 hover:scale-110 transition-transform">${heartIcon}</button>
+                                        <h4 class="font-bold text-lg text-slate-800 dark:text-white truncate" title="${resto.nom}">${resto.nom}</h4>
+                                    </div>
+                                    <div class="flex space-x-3 ml-2 flex-shrink-0">
+                                        <button onclick="editerRestaurant(${resto.originalIndex})" class="text-blue-400 hover:text-blue-600"><i class="fas fa-pen"></i></button>
+                                        <button onclick="supprimerRestaurant(${resto.originalIndex})" class="text-red-400 hover:text-red-600"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </div>
+                                <div class="mb-3 flex flex-wrap items-center justify-between gap-2">
+                                    <span class="text-xs px-2 py-1 rounded font-bold ${statusColor}">${resto.status}</span>
+                                    ${starsHtml}
+                                </div>
+                                <div class="flex flex-col gap-2 mt-2 border-t border-gray-100 dark:border-slate-600 pt-2">
+                                    ${mapLinkHtml}
+                                    ${webLinkHtml}
+                                </div>
+                            </div>
+                            `;
+                        }).join('')}
+                    </div>
+                `;
+                container.appendChild(wrapper);
+            });
+        }
+
+        function choisirRestoAleatoire() {
+            if(restaurants.length === 0) return alert(t('empty_restos'));
+            const selectedCuisine = document.getElementById('random-cuisine-select').value;
+            let pool = restaurants;
+            if(selectedCuisine) pool = restaurants.filter(r => r.cuisine === selectedCuisine);
+            if(pool.length === 0) return alert("Aucun restaurant trouvé pour ce critère !");
+            
+            const winner = pool[Math.floor(Math.random() * pool.length)];
+            alert(`🎲 RESULTAT DU TIRAGE :\n\n${winner.nom}\n🍽️ Cuisine : ${winner.cuisine}\n🌱 ${winner.status}`);
+        }
+
+        // EXPORT / IMPORT / FUSION
+        function sauvegarderTout() { 
+            localStorage.setItem('wvr_aliments', JSON.stringify(aliments)); 
+            localStorage.setItem('wvr_recettes', JSON.stringify(recettes)); 
+            localStorage.setItem('wvr_liens', JSON.stringify(liens)); 
+            localStorage.setItem('wvr_restaurants', JSON.stringify(restaurants)); 
+            localStorage.setItem('wvr_courses', JSON.stringify(courses)); 
+            afficherBadgeCourses();
+        }
+        function exporterDonnees() { 
+            const d = { aliments, recettes, liens, restaurants, courses, date: new Date().toLocaleDateString() }; 
+            const b = new Blob([JSON.stringify(d, null, 2)], { type: "application/json" }); 
+            const u = URL.createObjectURL(b); const a = document.createElement('a'); a.href = u; a.download = "sauvegarde_recettes.json"; document.body.appendChild(a); a.click(); document.body.removeChild(a); 
+        }
+        function importerDonnees(input) { 
+            const f = input.files[0]; if(!f) return; const r = new FileReader(); 
+            r.onload = e => { 
+                try { 
+                    const c = JSON.parse(e.target.result); 
+                    if(confirm(t('confirm_restore'))) { 
+                        if(c.aliments) aliments=c.aliments; 
+                        if(c.recettes) recettes=c.recettes; 
+                        if(c.liens) liens=c.liens; 
+                        if(c.restaurants) restaurants=c.restaurants; 
+                        if(c.courses) courses=c.courses; 
+                        sauvegarderTout(); location.reload(); 
+                    } 
+                } catch(err) { alert("Erreur"); } 
+            }; r.readAsText(f); input.value=''; 
+        }
+        function fusionnerDonnees(input) { 
+            const f = input.files[0]; if(!f) return; const r = new FileReader(); 
+            r.onload = e => { 
+                try { 
+                    const c = JSON.parse(e.target.result); 
+                    if(c.aliments) c.aliments.forEach(n => { if(!aliments.some(o => o.nom.toLowerCase() === n.nom.toLowerCase())) aliments.push(n); }); 
+                    if(c.recettes) c.recettes.forEach(n => { if(!recettes.some(o => o.titre.toLowerCase() === n.titre.toLowerCase())) recettes.push(n); }); 
+                    if(c.liens) c.liens.forEach(n => { if(!liens.some(o => o.url === n.url)) liens.push(n); }); 
+                    if(c.restaurants) c.restaurants.forEach(n => { if(!restaurants.some(o => o.nom.toLowerCase() === n.nom.toLowerCase())) restaurants.push(n); }); 
+                    if(c.courses) c.courses.forEach(n => { if(!courses.some(o => o.texte.toLowerCase() === n.texte.toLowerCase())) courses.push(n); }); 
+                    sauvegarderTout(); location.reload(); 
+                } catch(err) { alert("Error merge."); } 
+            }; r.readAsText(f); input.value=''; 
+        }
+    </script>
+</body>
+</html>

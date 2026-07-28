@@ -1,0 +1,1576 @@
+{
+  "aliments": [
+    {
+      "nom": "Riz Basmati",
+      "categorie": "Féculent"
+    },
+    {
+      "nom": "Riz Complet",
+      "categorie": "Féculent"
+    },
+    {
+      "nom": "Riz Rond (Risotto)",
+      "categorie": "Féculent"
+    },
+    {
+      "nom": "Pâtes (Blé)",
+      "categorie": "Féculent"
+    },
+    {
+      "nom": "Pâtes Complètes",
+      "categorie": "Féculent"
+    },
+    {
+      "nom": "Spaghetti",
+      "categorie": "Féculent"
+    },
+    {
+      "nom": "Pomme de terre",
+      "categorie": "Féculent"
+    },
+    {
+      "nom": "Patate douce",
+      "categorie": "Féculent"
+    },
+    {
+      "nom": "Quinoa",
+      "categorie": "Féculent"
+    },
+    {
+      "nom": "Boulgour",
+      "categorie": "Féculent"
+    },
+    {
+      "nom": "Semoule (Couscous)",
+      "categorie": "Féculent"
+    },
+    {
+      "nom": "Sarrasin",
+      "categorie": "Féculent"
+    },
+    {
+      "nom": "Flocons d'avoine",
+      "categorie": "Féculent"
+    },
+    {
+      "nom": "Nouilles de riz",
+      "categorie": "Féculent"
+    },
+    {
+      "nom": "Nouilles Udon",
+      "categorie": "Féculent"
+    },
+    {
+      "nom": "Pain complet",
+      "categorie": "Féculent"
+    },
+    {
+      "nom": "Tortilla (Blé/Maïs)",
+      "categorie": "Féculent"
+    },
+    {
+      "nom": "Lentilles Corail",
+      "categorie": "Protéine Végétale"
+    },
+    {
+      "nom": "Lentilles Vertes",
+      "categorie": "Protéine Végétale"
+    },
+    {
+      "nom": "Lentilles Beluga",
+      "categorie": "Protéine Végétale"
+    },
+    {
+      "nom": "Pois chiches",
+      "categorie": "Protéine Végétale"
+    },
+    {
+      "nom": "Haricots Rouges",
+      "categorie": "Protéine Végétale"
+    },
+    {
+      "nom": "Haricots Blancs",
+      "categorie": "Protéine Végétale"
+    },
+    {
+      "nom": "Haricots Noirs",
+      "categorie": "Protéine Végétale"
+    },
+    {
+      "nom": "Pois Cassés",
+      "categorie": "Protéine Végétale"
+    },
+    {
+      "nom": "Tofu Nature",
+      "categorie": "Protéine Végétale"
+    },
+    {
+      "nom": "Tofu Fumé",
+      "categorie": "Protéine Végétale"
+    },
+    {
+      "nom": "Tofu Soyeux",
+      "categorie": "Protéine Végétale"
+    },
+    {
+      "nom": "Tempeh",
+      "categorie": "Protéine Végétale"
+    },
+    {
+      "nom": "Seitan",
+      "categorie": "Protéine Végétale"
+    },
+    {
+      "nom": "Protéines de Soja (PST)",
+      "categorie": "Protéine Végétale"
+    },
+    {
+      "nom": "Edamame",
+      "categorie": "Protéine Végétale"
+    },
+    {
+      "nom": "Carotte",
+      "categorie": "Légume"
+    },
+    {
+      "nom": "Courgette",
+      "categorie": "Légume"
+    },
+    {
+      "nom": "Aubergine",
+      "categorie": "Légume"
+    },
+    {
+      "nom": "Brocoli",
+      "categorie": "Légume"
+    },
+    {
+      "nom": "Chou-fleur",
+      "categorie": "Légume"
+    },
+    {
+      "nom": "Chou Rouge",
+      "categorie": "Légume"
+    },
+    {
+      "nom": "Chou Kale",
+      "categorie": "Légume"
+    },
+    {
+      "nom": "Chou Chinois",
+      "categorie": "Légume"
+    },
+    {
+      "nom": "Épinard (Frais)",
+      "categorie": "Légume"
+    },
+    {
+      "nom": "Poivron Rouge",
+      "categorie": "Légume"
+    },
+    {
+      "nom": "Poivron Vert",
+      "categorie": "Légume"
+    },
+    {
+      "nom": "Poivron Jaune",
+      "categorie": "Légume"
+    },
+    {
+      "nom": "Tomate",
+      "categorie": "Légume"
+    },
+    {
+      "nom": "Tomate Pelée (Conserve)",
+      "categorie": "Légume"
+    },
+    {
+      "nom": "Concombre",
+      "categorie": "Légume"
+    },
+    {
+      "nom": "Haricot Vert",
+      "categorie": "Légume"
+    },
+    {
+      "nom": "Petit Pois",
+      "categorie": "Légume"
+    },
+    {
+      "nom": "Champignon de Paris",
+      "categorie": "Légume"
+    },
+    {
+      "nom": "Shiitake",
+      "categorie": "Légume"
+    },
+    {
+      "nom": "Oignon Jaune",
+      "categorie": "Légume"
+    },
+    {
+      "nom": "Oignon Rouge",
+      "categorie": "Légume"
+    },
+    {
+      "nom": "Ail",
+      "categorie": "Légume"
+    },
+    {
+      "nom": "Échalote",
+      "categorie": "Légume"
+    },
+    {
+      "nom": "Poireau",
+      "categorie": "Légume"
+    },
+    {
+      "nom": "Céleri Branche",
+      "categorie": "Légume"
+    },
+    {
+      "nom": "Asperge",
+      "categorie": "Légume"
+    },
+    {
+      "nom": "Betterave",
+      "categorie": "Légume"
+    },
+    {
+      "nom": "Radis",
+      "categorie": "Légume"
+    },
+    {
+      "nom": "Avocat",
+      "categorie": "Légume"
+    },
+    {
+      "nom": "Butternut",
+      "categorie": "Légume"
+    },
+    {
+      "nom": "Potimarron",
+      "categorie": "Légume"
+    },
+    {
+      "nom": "Maïs",
+      "categorie": "Légume"
+    },
+    {
+      "nom": "Cumin (Poudre)",
+      "categorie": "Épice"
+    },
+    {
+      "nom": "Cumin (Graines)",
+      "categorie": "Épice"
+    },
+    {
+      "nom": "Curry",
+      "categorie": "Épice"
+    },
+    {
+      "nom": "Curcuma",
+      "categorie": "Épice"
+    },
+    {
+      "nom": "Paprika Doux",
+      "categorie": "Épice"
+    },
+    {
+      "nom": "Paprika Fumé",
+      "categorie": "Épice"
+    },
+    {
+      "nom": "Cannelle",
+      "categorie": "Épice"
+    },
+    {
+      "nom": "Coriandre (Graines)",
+      "categorie": "Épice"
+    },
+    {
+      "nom": "Gingembre (Poudre)",
+      "categorie": "Épice"
+    },
+    {
+      "nom": "Gingembre (Frais)",
+      "categorie": "Épice"
+    },
+    {
+      "nom": "Piment (Cayenne/Espelette)",
+      "categorie": "Épice"
+    },
+    {
+      "nom": "Poivre Noir",
+      "categorie": "Épice"
+    },
+    {
+      "nom": "Muscade",
+      "categorie": "Épice"
+    },
+    {
+      "nom": "Clou de girofle",
+      "categorie": "Épice"
+    },
+    {
+      "nom": "Cardamome",
+      "categorie": "Épice"
+    },
+    {
+      "nom": "Safran",
+      "categorie": "Épice"
+    },
+    {
+      "nom": "Garam Masala",
+      "categorie": "Épice"
+    },
+    {
+      "nom": "Ras el Hanout",
+      "categorie": "Épice"
+    },
+    {
+      "nom": "Sel",
+      "categorie": "Condiment"
+    },
+    {
+      "nom": "Basilic",
+      "categorie": "Herbe Aromatique"
+    },
+    {
+      "nom": "Coriandre (Feuille)",
+      "categorie": "Herbe Aromatique"
+    },
+    {
+      "nom": "Persil Plat",
+      "categorie": "Herbe Aromatique"
+    },
+    {
+      "nom": "Menthe",
+      "categorie": "Herbe Aromatique"
+    },
+    {
+      "nom": "Ciboulette",
+      "categorie": "Herbe Aromatique"
+    },
+    {
+      "nom": "Thym",
+      "categorie": "Herbe Aromatique"
+    },
+    {
+      "nom": "Romarin",
+      "categorie": "Herbe Aromatique"
+    },
+    {
+      "nom": "Origan",
+      "categorie": "Herbe Aromatique"
+    },
+    {
+      "nom": "Laurier (Feuille)",
+      "categorie": "Herbe Aromatique"
+    },
+    {
+      "nom": "Aneth",
+      "categorie": "Herbe Aromatique"
+    },
+    {
+      "nom": "Huile d'Olive",
+      "categorie": "Matière Grasse"
+    },
+    {
+      "nom": "Huile de Coco",
+      "categorie": "Matière Grasse"
+    },
+    {
+      "nom": "Huile de Sésame",
+      "categorie": "Matière Grasse"
+    },
+    {
+      "nom": "Huile de Tournesol",
+      "categorie": "Matière Grasse"
+    },
+    {
+      "nom": "Beurre (ou végétal)",
+      "categorie": "Matière Grasse"
+    },
+    {
+      "nom": "Crème Fraîche (ou Soja/Avoine)",
+      "categorie": "Matière Grasse"
+    },
+    {
+      "nom": "Lait de Coco",
+      "categorie": "Matière Grasse"
+    },
+    {
+      "nom": "Cacahuètes",
+      "categorie": "Oléagineux"
+    },
+    {
+      "nom": "Noix de Cajou",
+      "categorie": "Oléagineux"
+    },
+    {
+      "nom": "Amandes",
+      "categorie": "Oléagineux"
+    },
+    {
+      "nom": "Noix",
+      "categorie": "Oléagineux"
+    },
+    {
+      "nom": "Noisettes",
+      "categorie": "Oléagineux"
+    },
+    {
+      "nom": "Graines de Sésame",
+      "categorie": "Oléagineux"
+    },
+    {
+      "nom": "Graines de Chia",
+      "categorie": "Oléagineux"
+    },
+    {
+      "nom": "Graines de Courge",
+      "categorie": "Oléagineux"
+    },
+    {
+      "nom": "Sauce Soja Salée",
+      "categorie": "Condiment"
+    },
+    {
+      "nom": "Sauce Soja Sucrée",
+      "categorie": "Condiment"
+    },
+    {
+      "nom": "Vinaigre Balsamique",
+      "categorie": "Condiment"
+    },
+    {
+      "nom": "Vinaigre de Riz",
+      "categorie": "Condiment"
+    },
+    {
+      "nom": "Vinaigre de Cidre",
+      "categorie": "Condiment"
+    },
+    {
+      "nom": "Moutarde",
+      "categorie": "Condiment"
+    },
+    {
+      "nom": "Miso",
+      "categorie": "Condiment"
+    },
+    {
+      "nom": "Tahini",
+      "categorie": "Condiment"
+    },
+    {
+      "nom": "Sirop d'Érable",
+      "categorie": "Condiment"
+    },
+    {
+      "nom": "Miel (ou Agave)",
+      "categorie": "Condiment"
+    },
+    {
+      "nom": "Citron Jaune",
+      "categorie": "Fruit"
+    },
+    {
+      "nom": "Citron Vert",
+      "categorie": "Fruit"
+    },
+    {
+      "nom": "Pomme",
+      "categorie": "Fruit"
+    },
+    {
+      "nom": "Banane",
+      "categorie": "Fruit"
+    },
+    {
+      "nom": "Kitchen King",
+      "categorie": "Épice"
+    },
+    {
+      "nom": "Chili (Poudre)",
+      "categorie": "Épice"
+    },
+    {
+      "nom": "Eau",
+      "categorie": "Liquide"
+    },
+    {
+      "nom": "Vin (Blanc)",
+      "categorie": "Liquide"
+    },
+    {
+      "nom": "Vin (Rouge)",
+      "categorie": "Liquide"
+    },
+    {
+      "nom": "Moutarde (Graine)",
+      "categorie": "Épice"
+    },
+    {
+      "nom": "Poire",
+      "categorie": "Fruit"
+    },
+    {
+      "nom": "Orange",
+      "categorie": "Fruit"
+    },
+    {
+      "nom": "Ananas",
+      "categorie": "Fruit"
+    },
+    {
+      "nom": "Fraise",
+      "categorie": "Fruit"
+    },
+    {
+      "nom": "Framboise",
+      "categorie": "Fruit"
+    },
+    {
+      "nom": "Lait",
+      "categorie": "Matière Grasse"
+    },
+    {
+      "nom": "oeuf",
+      "categorie": "Protéine"
+    },
+    {
+      "nom": "Boeuf",
+      "categorie": "Protéine"
+    },
+    {
+      "nom": "Porc",
+      "categorie": "Protéine"
+    },
+    {
+      "nom": "Poulet",
+      "categorie": "Protéine"
+    },
+    {
+      "nom": "Farine",
+      "categorie": "Féculent"
+    },
+    {
+      "nom": "Paneer",
+      "categorie": "Protéine Végétale"
+    },
+    {
+      "nom": "Sucre blanc",
+      "categorie": "Produit sucré"
+    },
+    {
+      "nom": "Sucre de canne",
+      "categorie": "Produit sucré"
+    },
+    {
+      "nom": "Sucre vanillé",
+      "categorie": "Produit sucré"
+    },
+    {
+      "nom": "Pâte à tartiner",
+      "categorie": "Produit sucré"
+    },
+    {
+      "nom": "Mangue",
+      "categorie": "Fruit"
+    },
+    {
+      "nom": "Marron (crème)",
+      "categorie": "Produit sucré"
+    },
+    {
+      "nom": "Clémentine",
+      "categorie": "Fruit"
+    },
+    {
+      "nom": "Cerise",
+      "categorie": "Fruit"
+    },
+    {
+      "nom": "Yaourt",
+      "categorie": "Matière Grasse"
+    },
+    {
+      "nom": "Yaourt Grec",
+      "categorie": "Protéine Végétale"
+    },
+    {
+      "nom": "Rhum Blanc",
+      "categorie": "Liquide"
+    },
+    {
+      "nom": "Rhum Brun",
+      "categorie": "Liquide"
+    }
+  ],
+  "recettes": [
+    {
+      "titre": "Khichdi Rice in Daal",
+      "ingredients": [
+        "1 c. à soupe de Huile d'Olive",
+        "Cumin (Graines)",
+        "Moutarde (Graine)",
+        "0.5 pincée(s) de Oignon Rouge",
+        "1 pièce(s) de Ail",
+        "1 pièce(s) de Tomate",
+        "Gingembre (Frais)",
+        "Lentilles Corail",
+        "Riz Basmati",
+        "Eau",
+        "Curcuma",
+        "Kitchen King",
+        "Chili (Poudre)"
+      ],
+      "etapes": [
+        "Couper et émincé :\n- 1 Tomate\n- 1cm de Gingembre\n- L'oignon\n- L'ail",
+        "Dans le Cookeo en mode Browning (dorer) :\nAjouter l'huile, graines de moutarde ainsi que graines de cumin",
+        "Quand ça \"crépite\", ajouter l'oignon, l'ail, le gingembre (si possible un morceau de piment frais)",
+        "Quand les oignons deviennent transparent, ajouter la tomate et remuer",
+        "Ensuite verser 1/2 cup de riz ainsi qu'un 3/4 de cup de lentille",
+        "4 cups d'eau et remuer !",
+        " Ajouter les épices : Curcuma, Kitchen King et Chili en poudre, et remuer",
+        "Fermer le couvercle et lancer la cuisson sous pression pendant 25 minutes",
+        "Salé, et c'est prêt ! Régalez vous :)"
+      ],
+      "date": "12/02/2026"
+    },
+    {
+      "titre": "Palak Paneer",
+      "ingredients": [
+        "150 g de Épinard (Frais)",
+        "1 pièce(s) de Tomate",
+        "0.5 pièce(s) de Oignon Rouge",
+        "1  de Gingembre (Frais)",
+        "1 pièce(s) de Ail",
+        "Riz Basmati",
+        "Paneer",
+        "Kitchen King",
+        "Chili (Poudre)",
+        "Curcuma"
+      ],
+      "etapes": [
+        "Décongeler le Paneer",
+        "Découper les légumes en morceaux",
+        "Faire dorer l'oignon, l'ail, 1cm de gingembre (+ Cardamome et piment frais)",
+        "Ajouter les épices",
+        "Ajouter les tomates et faire une pâte",
+        "Ajouter les épinards",
+        "Si la pâte parait trop épaisse, ajouter un peu de liquide (1/4 de cup)",
+        "Ajouter à votre convenance de la crème liquide pour un côté crémeux.",
+        "Mettre le tout dans le \"smoothiemaker\" et attendre que ça refroidisse !!",
+        "Mixer et remettre dans la poêle",
+        "Couper en carré le Paneer et ajouter dans le Palak",
+        "Servir chaud et bon appétit !!"
+      ],
+      "date": "13/02/2026"
+    },
+    {
+      "titre": "Pa d'ous Catalan de Mamie",
+      "categorie": "Dessert",
+      "ingredients": [
+        "7  de oeuf",
+        "1 L de Lait",
+        "24 pièce(s) de Sucre blanc",
+        "Sucre vanillé",
+        "14 pièce(s) de Sucre blanc",
+        "Eau"
+      ],
+      "etapes": [
+        "Faire chauffer le lait, les 24 morceaux de sucre et le sucre vanillé jusqu'à ébullition.\nOn stop directement et on laisse refroidir.",
+        "Battre les oeufs et vider dans le lait (refroidi), et remuer",
+        "Dans le moule, mettre les 14 morceaux de sucre et un peu d'eau pour faire le caramel. Préchauffer le four.",
+        "Lorsque le caramel est prêt, ajouter la mixture.",
+        "Dans un plus grand plat, faire un bain marie pour le moule et placer le tout dans le four pendant 60 min / Thermostat 6 (x30) = 180°c"
+      ],
+      "date": "13/02/2026"
+    },
+    {
+      "titre": "Crêpes Mimi",
+      "categorie": "Petit-Dej / Brunch",
+      "ingredients": [
+        "250 g de Farine",
+        "0.5 c. à café de Sel",
+        "2 c. à soupe de Sucre blanc",
+        "2 c. à soupe de Huile d'Olive",
+        "0.5 L de Lait",
+        "3  de oeuf"
+      ],
+      "etapes": [
+        "Dans une terrine (saladier) mettre la farine et y faire un \"puit\"",
+        "Ajouter dedans le sucre, le sel, et l'huile (ou du beurre fondu)",
+        "Ajouter la moitié du Liquide et délayer en partant du centre et en faisant tomber peu à peu la farine dans la pâte",
+        "Quand toute la farine est incorporée, travailler la pâte à la cuillère de bois pour obtenir une pâte lisse.",
+        "Dans un bol à côté, battre les oeufs à la fourchette et les ajouter à la pâte",
+        "Verser le reste du liquide, la pâte doit être coulante",
+        "Il n'y a plus qu'à graisser légèrement la poêle à l'aide d'un papier imbibé de matière grasse puis verser une louche de la pâte et ... régalez vous !"
+      ],
+      "date": "14/02/2026"
+    },
+    {
+      "titre": "Coulant aux Chataignes",
+      "categorie": "Dessert",
+      "ingredients": [
+        "360 g de Marron (crème)",
+        "4  de oeuf",
+        "120 g de Sucre blanc",
+        "200 g de Beurre (ou végétal)",
+        "140 g de Farine"
+      ],
+      "etapes": [
+        "Dans un saladier, mélanger les oeufs avec le sucre",
+        "Puis ajouter la crème de marron et mélanger",
+        "Continuer avec le beurre et mélanger",
+        "Terminer en versant la farine pendant le mélange",
+        "Au four à 180°c pendant 7 minutes\nPour 8 ramequins"
+      ],
+      "date": "14/02/2026"
+    },
+    {
+      "titre": "Dahl de Lentilles Corail 🇮🇳",
+      "categorie": "Plat Principal",
+      "isWorld": true,
+      "pays": "Inde",
+      "ingredients": [
+        "Lentilles Corail",
+        "Lait de Coco",
+        "Tomate",
+        "Oignon",
+        "Ail",
+        "Gingembre",
+        "Curry",
+        "Cumin"
+      ],
+      "etapes": [
+        "Faire revenir oignon, ail, gingembre.",
+        "Ajouter les épices puis les tomates.",
+        "Verser lentilles et lait de coco + eau.",
+        "Cuire 20 min jusqu'à consistance crémeuse."
+      ],
+      "date": "2024"
+    },
+    {
+      "titre": "Palak Paneer (Tofu) 🇮🇳",
+      "categorie": "Plat Principal",
+      "isWorld": true,
+      "pays": "Inde",
+      "ingredients": [
+        "Épinard",
+        "Tofu Nature",
+        "Crème Fraîche",
+        "Garam Masala",
+        "Ail",
+        "Cumin"
+      ],
+      "etapes": [
+        "Blanchir les épinards et mixer.",
+        "Griller le tofu en cubes.",
+        "Mijoter la purée d'épinard avec épices et crème.",
+        "Ajouter le tofu."
+      ],
+      "date": "2024"
+    },
+    {
+      "titre": "Risotto aux Champignons 🇮🇹",
+      "categorie": "Plat Principal",
+      "isWorld": true,
+      "pays": "Italie",
+      "ingredients": [
+        "Riz Rond",
+        "Champignon de Paris",
+        "Oignon",
+        "Vin Blanc (facultatif)",
+        "Bouillon de légumes",
+        "Parmesan (ou levure)"
+      ],
+      "etapes": [
+        "Nacrer le riz avec l'oignon.",
+        "Déglacer au vin.",
+        "Ajouter bouillon louche par louche en remuant.",
+        "Finir avec champignons poêlés."
+      ],
+      "date": "2024"
+    },
+    {
+      "titre": "Pasta alla Norma 🇮🇹",
+      "categorie": "Plat Principal",
+      "isWorld": true,
+      "pays": "Italie",
+      "ingredients": [
+        "Pâtes",
+        "Aubergine",
+        "Tomate",
+        "Ricotta (ou Tofu)",
+        "Basilic"
+      ],
+      "etapes": [
+        "Frire des cubes d'aubergine.",
+        "Faire une sauce tomate simple.",
+        "Mélanger pâtes, sauce et aubergines.",
+        "Garnir de basilic."
+      ],
+      "date": "2024"
+    },
+    {
+      "titre": "Guacamole & Tortillas 🇲🇽",
+      "categorie": "Apéro / Cocktail",
+      "isWorld": true,
+      "pays": "Mexique",
+      "ingredients": [
+        "Avocat",
+        "Tomate",
+        "Oignon Rouge",
+        "Citron Vert",
+        "Coriandre",
+        "Piment"
+      ],
+      "etapes": [
+        "Écraser l'avocat grossièrement.",
+        "Ajouter dés de tomate et oignon ciselé.",
+        "Assaisonner avec jus de citron, sel et coriandre."
+      ],
+      "date": "2024"
+    },
+    {
+      "titre": "Chili Sin Carne 🇲🇽",
+      "categorie": "Plat Principal",
+      "isWorld": true,
+      "pays": "Mexique",
+      "ingredients": [
+        "Haricots Rouges",
+        "Maïs",
+        "Tomate",
+        "Poivron Rouge",
+        "Oignon",
+        "Cumin",
+        "Paprika"
+      ],
+      "etapes": [
+        "Mijoter oignons, poivrons et épices.",
+        "Ajouter tomates et haricots.",
+        "Cuire à feu doux 30 min.",
+        "Servir avec du riz."
+      ],
+      "date": "2024"
+    },
+    {
+      "titre": "Tabbouleh Libanais 🇱🇧",
+      "categorie": "Entrée",
+      "isWorld": true,
+      "pays": "Liban",
+      "ingredients": [
+        "Persil",
+        "Boulgour",
+        "Tomate",
+        "Menthe",
+        "Oignon",
+        "Citron Jaune",
+        "Huile d'Olive"
+      ],
+      "etapes": [
+        "Hacher très fin beaucoup de persil et menthe.",
+        "Couper tomates en dés minuscules.",
+        "Mélanger avec un peu de boulgour fin trempé.",
+        "Assaisonner généreusement citron/huile."
+      ],
+      "date": "2024"
+    },
+    {
+      "titre": "Houmous Maison 🇱🇧",
+      "categorie": "Apéro / Cocktail",
+      "isWorld": true,
+      "pays": "Liban",
+      "ingredients": [
+        "Pois chiches",
+        "Tahini",
+        "Citron Jaune",
+        "Ail",
+        "Cumin",
+        "Huile d'Olive"
+      ],
+      "etapes": [
+        "Mixer pois chiches, tahini, ail, citron.",
+        "Ajouter eau glacée pour onctuosité.",
+        "Servir avec filet d'huile et cumin."
+      ],
+      "date": "2024"
+    },
+    {
+      "titre": "Miso Ramen Végé 🇯🇵",
+      "categorie": "Plat Principal",
+      "isWorld": true,
+      "pays": "Japon",
+      "ingredients": [
+        "Nouilles",
+        "Miso",
+        "Bouillon de légumes",
+        "Tofu",
+        "Maïs",
+        "Champignon",
+        "Cebette"
+      ],
+      "etapes": [
+        "Dissoudre le miso dans le bouillon chaud.",
+        "Cuire les nouilles à part.",
+        "Dresser bol : bouillon, nouilles, toppings (maïs, tofu grillé, champignons)."
+      ],
+      "date": "2024"
+    },
+    {
+      "titre": "Ratatouille Niçoise 🇫🇷",
+      "categorie": "Plat Principal",
+      "isWorld": true,
+      "pays": "France",
+      "ingredients": [
+        "Courgette",
+        "Aubergine",
+        "Poivron",
+        "Tomate",
+        "Oignon",
+        "Ail",
+        "Thym"
+      ],
+      "etapes": [
+        "Couper tous les légumes en dés.",
+        "Cuire chaque légume séparément à l'huile d'olive.",
+        "Tout réunir et mijoter 20 min.",
+        "Servir chaud ou froid."
+      ],
+      "date": "2024"
+    },
+    {
+      "titre": "Tian de Légumes 🇫🇷",
+      "categorie": "Plat Principal",
+      "isWorld": true,
+      "pays": "France",
+      "ingredients": [
+        "Courgette",
+        "Tomate",
+        "Aubergine",
+        "Mozzarella (facultatif)",
+        "Herbes de Provence"
+      ],
+      "etapes": [
+        "Couper légumes en rondelles fines.",
+        "Disposer en alternance dans un plat.",
+        "Saupoudrer d'herbes et huile.",
+        "Cuire au four 45 min."
+      ],
+      "date": "2024"
+    },
+    {
+      "titre": "Shakshuka Verte 🇮🇱",
+      "categorie": "Plat Principal",
+      "isWorld": true,
+      "pays": "Israël",
+      "ingredients": [
+        "Oeuf",
+        "Épinard",
+        "Poireau",
+        "Feta",
+        "Cumin",
+        "Coriandre"
+      ],
+      "etapes": [
+        "Fondre poireaux et épinards à la poêle.",
+        "Creuser des puits et casser les oeufs dedans.",
+        "Couvrir et cuire jusqu'au blanc pris.",
+        "Parsemer de feta."
+      ],
+      "date": "2024"
+    },
+    {
+      "titre": "Curry Thaï Vert 🇹🇭",
+      "categorie": "Plat Principal",
+      "isWorld": true,
+      "pays": "Thaïlande",
+      "ingredients": [
+        "Lait de Coco",
+        "Pâte de Curry Vert",
+        "Aubergine",
+        "Bambou",
+        "Basilic",
+        "Tofu"
+      ],
+      "etapes": [
+        "Chauffer la pâte de curry dans un peu de lait de coco.",
+        "Ajouter reste de lait et légumes.",
+        "Mijoter.",
+        "Finir avec basilic thaï."
+      ],
+      "date": "2024"
+    },
+    {
+      "titre": "Pad Thaï Végé 🇹🇭",
+      "categorie": "Plat Principal",
+      "isWorld": true,
+      "pays": "Thaïlande",
+      "ingredients": [
+        "Nouilles de riz",
+        "Tofu",
+        "Oeuf",
+        "Cacahuètes",
+        "Soja (Germes)",
+        "Cebette",
+        "Tamarin (ou Citron Vert)"
+      ],
+      "etapes": [
+        "Sauter tofu.",
+        "Ajouter nouilles ramollies et sauce (tamarin, sucre, soja).",
+        "Pousser sur le côté, cuire l'oeuf.",
+        "Mélanger avec germes et cacahuètes."
+      ],
+      "date": "2024"
+    },
+    {
+      "titre": "Tortilla de Patatas 🇪🇸",
+      "categorie": "Plat Principal",
+      "isWorld": true,
+      "pays": "Espagne",
+      "ingredients": [
+        "Pomme de terre",
+        "Oeuf",
+        "Oignon",
+        "Huile d'Olive"
+      ],
+      "etapes": [
+        "Frire patates et oignons coupés fin dans l'huile.",
+        "Égoutter et mélanger aux oeufs battus.",
+        "Cuire à la poêle en retournant à mi-cuisson."
+      ],
+      "date": "2024"
+    },
+    {
+      "titre": "Gaspacho Andalou 🇪🇸",
+      "categorie": "Entrée",
+      "isWorld": true,
+      "pays": "Espagne",
+      "ingredients": [
+        "Tomate",
+        "Poivron Vert",
+        "Concombre",
+        "Ail",
+        "Vinaigre de Xérès",
+        "Pain rassis"
+      ],
+      "etapes": [
+        "Tout mixer cru très finement.",
+        "Ajouter huile d'olive en filet.",
+        "Servir très frais."
+      ],
+      "date": "2024"
+    },
+    {
+      "titre": "Falafels 🥙",
+      "categorie": "Plat Principal",
+      "isWorld": true,
+      "pays": "Moyen-Orient",
+      "ingredients": [
+        "Pois chiches (secs trempés)",
+        "Oignon",
+        "Ail",
+        "Persil",
+        "Coriandre",
+        "Cumin"
+      ],
+      "etapes": [
+        "Mixer pois chiches crus (trempés 24h) avec herbes.",
+        "Former boules.",
+        "Frire.",
+        "Servir dans pain pita."
+      ],
+      "date": "2024"
+    },
+    {
+      "titre": "Bibimbap Végé 🇰🇷",
+      "categorie": "Plat Principal",
+      "isWorld": true,
+      "pays": "Corée",
+      "ingredients": [
+        "Riz Rond",
+        "Épinard",
+        "Carotte",
+        "Champignon",
+        "Oeuf",
+        "Gochujang (Pâte piment)",
+        "Sésame"
+      ],
+      "etapes": [
+        "Cuire riz.",
+        "Sauter chaque légume séparément avec huile sésame.",
+        "Disposer sur riz.",
+        "Ajouter oeuf au plat et sauce pimentée."
+      ],
+      "date": "2024"
+    },
+    {
+      "titre": "Moussaka Végétarienne 🇬🇷",
+      "categorie": "Plat Principal",
+      "isWorld": true,
+      "pays": "Grèce",
+      "ingredients": [
+        "Aubergine",
+        "Pomme de terre",
+        "Lentilles (pour remplacer viande)",
+        "Tomate",
+        "Lait (pour béchamel)",
+        "Farine"
+      ],
+      "etapes": [
+        "Griller tranches aubergines et patates.",
+        "Faire sauce tomate aux lentilles.",
+        "Faire béchamel.",
+        "Monter en couches et cuire au four."
+      ],
+      "date": "2024"
+    },
+    {
+      "titre": "Salade Grecque 🇬🇷",
+      "categorie": "Entrée",
+      "isWorld": true,
+      "pays": "Grèce",
+      "ingredients": [
+        "Tomate",
+        "Concombre",
+        "Feta",
+        "Olive Noire",
+        "Oignon Rouge",
+        "Origan",
+        "Huile d'Olive"
+      ],
+      "etapes": [
+        "Couper tomates et concombres en gros morceaux.",
+        "Ajouter tranche de feta, olives, oignon.",
+        "Saupoudrer origan et huile."
+      ],
+      "date": "2024"
+    },
+    {
+      "titre": "Gratin Végétarien",
+      "categorie": "Plat Principal",
+      "ingredients": [
+        "1/4 Oignon Rouge",
+        "1/4 Aubergine",
+        "1 Courgette",
+        "4 Champignon de Paris",
+        "1/2 Poivron Rouge",
+        "1 Poireau",
+        "4  de oeuf"
+      ],
+      "etapes": [
+        "Dans une poêle chaude, ajouter l'huile",
+        "Commencer avec les champignons",
+        "Quand ils sont dorés, ajouter l'oignon et le poireau et attendre que ce soit légèrement transparent",
+        "Ensuite, ajouter tout le reste (aubergine doit être soft)",
+        "Ajouter un au choix parmis : Kitchen King, Arriabata, herbes de provence\nArrêter la poêle !",
+        "à Côté dans un bol, ajouter le yaourt, les oeufs, sel et poivre, puis remuer à la fourchette jusqu'à ce que soit crémeux !",
+        "Attendre que les légumes à la poêle soient refroidis.\nPuis ajouter dans un plat et faire couler la mixture précédente",
+        "Préchauffer le four à 190°c",
+        "Faire chauffer le plat final pendant 30 min"
+      ],
+      "date": "19/02/2026"
+    },
+    {
+      "titre": "Chaï",
+      "categorie": "Petit-Dej / Brunch",
+      "ingredients": [
+        "6 pièce(s) de Cardamome",
+        "6 pièce(s) de Clou de girofle",
+        "2cm de Gingembre",
+        "6 pièce(s) de Sucre blanc",
+        "2 Tasses d'Eau",
+        "5 c. à café de Thé Chaï",
+        "200 cl de Lait"
+      ],
+      "etapes": [
+        "Écraser les Cardamome ainsi que les Clou de girofle",
+        "Raper ou écraser également le Gingembre",
+        " Placer sur un feu moyen (6) une casserole avec les deux tasses d'eau, ",
+        "Ajoutez les épices ainsi que les morceaux de sucre",
+        "Ajouter les 5 Cuillères à café de Thé Chaï",
+        "Dès lors que le liquide se met à bouillir, ajouter les 200cl de Lait (le thé doit avoir une couleur un peu café au lait)",
+        "Après quelques secondes, couper le feu et server au travers d'un tamis dans deux tasses",
+        "Boire pendant que c'est chaud et... régalez vous !"
+      ],
+      "date": "11/03/2026"
+    },
+    {
+      "titre": "Banana Bread",
+      "categorie": "Dessert",
+      "ingredients": [
+        "4 Bananes",
+        "0.5 cup de Huile d'Olive",
+        "0.5 cup de Sucre brun",
+        "1 Sachet de baking Powder",
+        "2  de oeuf",
+        "1 c. à café de Cannelle",
+        "1 c. à café de vanille (extrait)",
+        "1.5 cup de farine"
+      ],
+      "etapes": [
+        "Préchauffez le four à 175 °C (thermostat 6). Huilez généreusement le fond et les parois d'un moule à cake avec environ 2 cuillères à soupe d'huile d'olive. Il est normal qu'un peu d'huile s'accumule au fond.",
+        "Dans un grand bol, mélangez le reste de l'huile d'olive (un peu moins de 125 ml) avec la cassonade (125 ml).",
+        "Ajoutez les œufs et mélangez pendant environ 1 minute.",
+        "Ajoutez les bananes (voir notes) et mélangez.",
+        "Incorporez le bicarbonate de soude, le sel casher, la cannelle et l'extrait de vanille (1 cuillère à café de chaque).",
+        "Incorporez la farine de blé entier (125 ml) et la farine tout usage (250 ml) jusqu'à ce que le tout soit bien mélangé et qu'il ne reste plus de grumeaux.",
+        "Versez la pâte dans le moule préparé et faites cuire au four à 175 °C pendant 50 à 60 minutes, ou jusqu'à ce qu'un cure-dent inséré au centre en ressorte propre.",
+        "Laissez refroidir dans le moule pendant au moins 10 minutes. Il devrait se démouler facilement si vous retournez le moule, mais si besoin, vous pouvez passer la lame d'un couteau le long des bords avant de le retourner.",
+        "Coupez le gâteau aux bananes en 10 tranches. Je recommande de le servir chaud avec du beurre salé."
+      ],
+      "date": "11/03/2026"
+    },
+    {
+      "titre": "Bol de Quinoa au Tofu Laqué (Miso & Gingembre)",
+      "categorie": "Plat Principal",
+      "ingredients": [
+        "Topping : Quelques amandes concassées, persil plat.",
+        "120 g de Quinoa",
+        "200 g de Tofu Nature",
+        "1  de Carotte",
+        "0.5  de Brocoli",
+        "1 c. à soupe de Miso",
+        "1 c. à soupe de Miel (ou Agave)",
+        "1 c. à soupe de Vinaigre de Riz",
+        "1cm de Gingembre",
+        "1 pièce(s) de Ail"
+      ],
+      "etapes": [
+        "Le Quinoa : Rincez le quinoa et faites-le cuire dans deux fois son volume d'eau salée (environ 12-15 min).",
+        "Les Légumes : Coupez la carotte en rubans et le brocoli en petites fleurettes. Faites-les sauter à la poêle avec un filet d'huile d'olive (ou à la vapeur) jusqu'à ce qu'ils soient tendres mais encore croquants.",
+        "Le Tofu : Coupez le tofu en dés. Faites-les dorer à la poêle avec un peu d'huile. En fin de cuisson, baissez le feu et versez le mélange \"Laque\" (miso, miel, vinaigre, gingembre, ail). Laissez caraméliser 2 minutes.",
+        "Assemblage : Servez le quinoa, disposez les légumes et le tofu laqué par-dessus. Parsemez d'amandes et de persil."
+      ],
+      "date": "11/03/2026"
+    }
+  ],
+  "liens": [
+    {
+      "titre": "Cake au Chèvre et à la tomate confite",
+      "url": "https://www.marmiton.org/recettes/recette_cake-au-chevre-et-a-la-tomate-confite_28377.aspx",
+      "categorie": "Plat Principal",
+      "ingredients": [
+        "Farine",
+        "Oeuf",
+        "Tomate"
+      ]
+    },
+    {
+      "titre": "Champignons farcis Végé",
+      "url": "https://www.marmiton.org/recettes/recette_champignons-farcis-vegetariens_39416.aspx",
+      "categorie": "Plat Principal",
+      "ingredients": [
+        "Champignon"
+      ]
+    },
+    {
+      "titre": "Couscous Végé",
+      "url": "https://www.marmiton.org/recettes/recette_couscous-vegetarien-facile_62233.aspx",
+      "categorie": "Plat Principal",
+      "ingredients": [
+        "Semoule",
+        "Pois chiche",
+        "Tomate",
+        "Courgette"
+      ]
+    },
+    {
+      "titre": "Croque Monsieur Végé",
+      "url": "https://www.marmiton.org/recettes/recette_croque-monsieur-vegetarien-ou-croque-mademoiselle_69915.aspx",
+      "categorie": "Plat Principal",
+      "ingredients": [
+        "Tomate",
+        "Pain de mie",
+        "Fromage"
+      ]
+    },
+    {
+      "titre": "Pancakes",
+      "url": "https://www.marmiton.org/recettes/recette_pancakes-faciles-et-rapides_81518.aspx",
+      "categorie": "Petit-Dej / Brunch",
+      "ingredients": [
+        "Farine",
+        "Oeuf",
+        "Lait"
+      ]
+    },
+    {
+      "titre": "Mousse au Chocolat",
+      "url": "https://www.marmiton.org/recettes/recette_mousse-au-chocolat-facile_13585.aspx",
+      "categorie": "Dessert",
+      "ingredients": [
+        "Oeuf",
+        "Chocolat",
+        "Sucre vanillé"
+      ]
+    }
+  ],
+  "restaurants": [
+    {
+      "nom": "Tichaya",
+      "cuisine": "Thaï",
+      "adresse": "1 bis Bd Firmin Pons, 31700 Blagnac",
+      "website": "https://tichaya.fr/le-menu/",
+      "status": "Option Végé"
+    },
+    {
+      "nom": "Manger Autrement, Chez Prasad",
+      "cuisine": "Indien",
+      "adresse": "155 Gd Rue Saint-Michel, 31400 Toulouse",
+      "website": "",
+      "status": "100% Végétarien"
+    },
+    {
+      "nom": "Mongelli Tournefeuille",
+      "cuisine": "Italien",
+      "adresse": "Imp. Max Baylac, 31170 Tournefeuille",
+      "website": "https://www.pizza-mongelli.com/carte/",
+      "status": "Option Végé"
+    },
+    {
+      "nom": "D'cadéi",
+      "cuisine": "Gastronomie",
+      "adresse": "1 Rue de l'Hôtel de ville, 31270 Villeneuve-Tolosane",
+      "website": "https://www.dcadei.fr/table-bistronomique/menus/",
+      "status": "Option Végé"
+    },
+    {
+      "nom": "Joshore Road",
+      "cuisine": "Indien",
+      "adresse": "10 Rue Maletache, 31000 Toulouse",
+      "website": "https://restaurant-joshore-road.fr/fr/services",
+      "status": "Option Végé"
+    },
+    {
+      "nom": "Indian Food Corner",
+      "cuisine": "Indien",
+      "adresse": "215 Rte de Grenade, 31700 Blagnac",
+      "website": "https://indianfoodblagnac.com/menu",
+      "status": "Option Végé"
+    },
+    {
+      "nom": "L'écorce",
+      "cuisine": "Gastronomie",
+      "adresse": "8 rue de l’Esquile, 31000 TOULOUSE",
+      "website": "https://www.lecorce.com/carte-restaurant-gastronomique-toulouse/",
+      "status": "Option Végé"
+    },
+    {
+      "nom": "Le Mas de Dardagna",
+      "cuisine": "Gastronomie",
+      "adresse": "1 Chem. de Dardagna, 31400 Toulouse",
+      "website": "https://www.masdedardagna.com/#",
+      "status": "Option Végé"
+    },
+    {
+      "nom": "Au Pois Gourmand",
+      "cuisine": "Gastronomie",
+      "adresse": "3 Rue Emile Heybrard, 31300 Toulouse",
+      "website": "https://www.pois-gourmand.fr/les-menus/",
+      "status": "Option Végé"
+    },
+    {
+      "nom": "Une Table à Deux",
+      "cuisine": "Gastronomie",
+      "adresse": "10 Rue de la Pleau, 31000 Toulouse",
+      "website": "https://www.unetableadeux.fr/menus/",
+      "status": "Option Végé"
+    },
+    {
+      "nom": "La maison du Curry",
+      "cuisine": "Indien",
+      "adresse": "51 Rue du Taur, 31000 Toulouse",
+      "website": "https://maisonducurry31.fr/menu-curry/",
+      "status": "Option Végé"
+    },
+    {
+      "nom": "Spice Palatte",
+      "cuisine": "Indien",
+      "adresse": "2 Rue Joutx Aigues, 31000 Toulouse",
+      "website": "https://www.spicepalattetoulouse.com/menu/",
+      "status": "Option Végé"
+    },
+    {
+      "nom": "Pho Saigon",
+      "cuisine": "Vietnamien",
+      "adresse": "17 Rue Aristide Berges, 31270 Cugnaux",
+      "website": "https://www.pho-saigon.net/la-carte",
+      "status": "Option Végé"
+    },
+    {
+      "nom": "Sagué",
+      "cuisine": "Coréen",
+      "adresse": "123 Rue Achille Viadieu, 31400 Toulouse",
+      "website": "http://saguerestohtml.github.io/sague-menu/",
+      "status": "Option Végé"
+    },
+    {
+      "nom": "Sarang House",
+      "cuisine": "Coréen",
+      "adresse": "25 Rue du Taur, 31000 Toulouse",
+      "website": "https://www.instagram.com/saranghouse31/?hl=fr",
+      "status": "Option Végé"
+    },
+    {
+      "nom": "Le P'tit Louis",
+      "cuisine": "Coréen",
+      "adresse": "32 Rue de la République, 31300 Toulouse",
+      "website": "https://leptitlouis.fr/?page_id=3159",
+      "status": "Option Végé"
+    },
+    {
+      "nom": "Cho Via He",
+      "cuisine": "Vietnamien",
+      "adresse": "8 Rue de Metz, 31000 Toulouse",
+      "website": "https://www.choviahe.fr/menu",
+      "status": "Option Végé"
+    },
+    {
+      "nom": "Tonnerres de Brest",
+      "cuisine": "Breton",
+      "adresse": "41 Rue Gaston Doumergue, 31170 Tournefeuille",
+      "website": "https://tonnerresdebrest.fr/Carte/",
+      "status": "Option Végé"
+    },
+    {
+      "nom": "O Bonheur",
+      "cuisine": "Thaï",
+      "adresse": "1 Rue Colette Besson, 31120 Roquettes",
+      "website": "https://botna.fr/obonheur-roquette-by-botna/#la-carte",
+      "status": "Option Végé"
+    },
+    {
+      "nom": "ALBA",
+      "cuisine": "Grec",
+      "adresse": "3 Rue Perchepinte, 31000 Toulouse",
+      "website": "https://albatoulouse.fr/cuisine-grecque-toulouse/",
+      "status": "Option Végé"
+    },
+    {
+      "nom": "Les Filous",
+      "cuisine": "Grec",
+      "adresse": "18 Rue d'Aubuisson, 31000 Toulouse",
+      "website": "https://les-filous.fr/wp-content/uploads/2025/11/MENU-HIVER-2025-LES-FILOUS.pdf",
+      "status": "Option Végé"
+    },
+    {
+      "nom": "Le Yeti",
+      "cuisine": "Népalais",
+      "adresse": "21 Rue de la Colombette, 31000 Toulouse",
+      "website": "https://restaurant-le-yeti-toulouse.fr/fr/services",
+      "status": "Option Végé"
+    },
+    {
+      "nom": "Ô Saveurs du Tibet",
+      "cuisine": "Népalais",
+      "adresse": "1 Rue des Pénitents Gris, 31000 Toulouse",
+      "website": "https://www.facebook.com/osaveursdutibet",
+      "status": "Option Végé"
+    },
+    {
+      "nom": "Saveurs de Leverest",
+      "cuisine": "Népalais",
+      "adresse": "30 Rue Jean Palaprat, 31000 Toulouse",
+      "website": "https://saveurs-de-l-everest-toulouse.fr/fr/services",
+      "status": "Option Végé"
+    },
+    {
+      "nom": "La Taqueria",
+      "cuisine": "Mexicain",
+      "adresse": "31 Rue Nicolas Bachelier, 31000 Toulouse",
+      "website": "https://lataqueriatoulouse.fr/la-carte",
+      "status": "Option Végé"
+    },
+    {
+      "nom": "NACHOS",
+      "cuisine": "Mexicain",
+      "adresse": "700 La Pyrénéenne, 31670 Labège",
+      "website": "https://nachos.fr/notre-carte/?utm_source=google&utm_medium=organic&utm_campaign=mybusiness-menu",
+      "status": "Option Végé"
+    },
+    {
+      "nom": " YŪJŌ RAMEN ラーメン屋",
+      "cuisine": "Japonais",
+      "adresse": "35 Rue Léon Gambetta, 31000 Toulouse",
+      "website": "https://www.yujoramen.com/fr/food/",
+      "status": "Option Végé"
+    },
+    {
+      "nom": "Aishi Ramen",
+      "cuisine": "Japonais",
+      "adresse": "16 Rue Léon Gambetta, 31000 Toulouse",
+      "website": "https://aishi-ramen.com/menus-translated/",
+      "status": "Option Végé"
+    },
+    {
+      "nom": " MIZUKI RAMEN みずき",
+      "cuisine": "Japonais",
+      "adresse": "54 Rue Peyrolières, 31000 Toulouse",
+      "website": "https://mizuki-toulouse.fr/wp-content/uploads/2024/05/Menu-Mizuki-V7-final.pdf",
+      "status": "Option Végé"
+    },
+    {
+      "nom": "Ni'shimai",
+      "cuisine": "Japonais",
+      "adresse": "2 Rue Joseph Lakanal, 31000 Toulouse",
+      "website": "https://natachanishimai.wixsite.com/monsite/menu",
+      "status": "Option Végé"
+    },
+    {
+      "nom": "Bep Chay",
+      "cuisine": "Vietnamien",
+      "adresse": "22 Rue des Couteliers, 31000 Toulouse",
+      "website": "https://bep-chay.com/notre-carte/",
+      "status": "100% Végétarien"
+    },
+    {
+      "nom": "Sixta",
+      "cuisine": "Gastronomie",
+      "adresse": "28 Rue de Bayard, 31000 Toulouse",
+      "website": "chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://sixta-toulouse.fr/wp-content/uploads/2018/11/SIXTA-carte-restaurant.pdf",
+      "status": "100% Végétarien"
+    },
+    {
+      "nom": "Le 20eme Avenue",
+      "cuisine": "Tapas",
+      "adresse": "20 Av. Latécoère 31700 Cornebarrieu",
+      "website": "https://www.le20eavenue.fr/fr/cote-tapas/",
+      "status": "Option Végé"
+    },
+    {
+      "nom": "La Faim des Haricots",
+      "cuisine": "Gastronomie",
+      "adresse": "2b Rue du Puits Vert, 31000 Toulouse",
+      "website": "http://lafaimdesharicots.fr/buffets/",
+      "status": "Option Végé"
+    },
+    {
+      "nom": "Silex & Fourchette",
+      "cuisine": "Gastronomie",
+      "adresse": "42 Rue des Lois, 31000 Toulouse",
+      "website": "chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://www.silexetfourchette.com/wp-content/uploads/2025/03/S-ET-F-I-carte-2025.pdf",
+      "status": "Option Végé"
+    },
+    {
+      "nom": "Meurette",
+      "cuisine": "Gastronomie",
+      "adresse": "Le Village, 31160 Rouède",
+      "website": "https://www.instagram.com/restaurant_meurette/",
+      "status": "Option Végé"
+    },
+    {
+      "nom": "Daebak",
+      "cuisine": "Coréen",
+      "adresse": "2 Rue des Blanchers, 31000 Toulouse",
+      "website": "",
+      "status": "Option Végé"
+    }
+  ],
+  "date": "28/07/2026",
+  "exportTimestamp": 1785234956376
+}
